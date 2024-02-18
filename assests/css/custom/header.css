@@ -1,0 +1,196 @@
+
+header.bgImage{
+    background-image: url(../../img/header.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+header.bgImage .bgImage-sub{
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-family: "Roboto Slab",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+header.bgImage .bgImage-heading{
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 550;
+    margin-bottom: 2rem;
+    font-family: "Montserrat",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.css-h5{
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 550;
+    text-shadow: 0px 7px 10px #7A7A7A;
+    font-family: "Montserrat",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+  /* navbar start */
+  #mainNavbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #212529;
+    background-color: transparent;
+    transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+    -webkit-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out ;
+    -moz-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+    -ms-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+    -o-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+}
+
+#logo {
+    color: #de3545;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+}
+/* effect-shine */
+#logo:hover {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 250%;
+    animation: shine 2s infinite;
+  }
+  
+  @-webkit-keyframes shine {
+    from {
+      -webkit-mask-position: 150%;
+    }
+    
+    to {
+      -webkit-mask-position: -50%;
+    }
+  }
+#mainNavbar .navbar-nav .nav-item .nav-link{
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: .06em;
+    background: linear-gradient(currentColor, currentColor) bottom / 0 .1em no-repeat;
+	transition: 1s background-size;
+
+}
+#mainNavbar .navbar-nav .nav-item .nav-link:hover {
+	background-size: 100% .1em;
+}
+
+/* Variations */
+#mainNavbar .navbar-nav .nav-item .nav-link.left {
+	background-position: left bottom;
+}
+
+#mainNavbar .navbar-nav .nav-item .nav-link.right {
+	background-position: right bottom;
+}
+#mainNavbar .navbar-nav .nav-item .nav-link:hover,
+#mainNavbar .navbar-nav .nav-item .nav-link.active{
+    color: #b5b5b5;
+}
+
+#mainNavbar.navbar-scroll{
+    background-color: #212529 !important;
+    height: 4rem;
+    opacity: .997;
+    transition: background-color 0.8s ease-in-out;
+}
+
+/* navbar end */
+/*Hadi baslayalim button link start*/
+.linkCok{
+    transition: all .5s ease-in-out;
+}
+
+.linkCok:hover{
+    transform: scale(.97);
+    -webkit-transform: scale(.97);
+}
+#me-about{
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 50px;
+
+    border: 3px solid ;
+    border-image:
+    linear-gradient(#a767e5, #12bcfe, #44ce7b) 1;
+    border-radius: 10px;
+}
+#me-about:hover::before {
+    animation: animate_border .75s linear infinite;
+}
+@keyframes rotate {
+    
+    50% {
+        border-image:
+        linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b) 1;
+    }
+}
+
+#me-about:hover{
+    animation: pulsate 1s
+    ease-in-out;
+}
+
+@keyframes pulsate {
+   0%{
+        box-shadow:
+        0 0 25px #5ddcff,
+        0 0 50px #4e00c2;
+    }
+}
+/*social-link start*/
+#social-h5{
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+.social-div .link{
+    text-decoration: none;
+    color: #fff;
+    margin:.6rem;
+    width: 3.4rem;
+    height: 3.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgb(28, 28, 28) ;
+    border-radius: .5rem;
+    position: relative;
+    transition: transform 0.4s;
+}
+.social-div .link:hover{transform: rotate(-45deg);}
+.social-div .link::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: #373737;
+    border-radius: .5rem;
+    transition: opacity 0.2s;
+}
+.social-div .link::before{opacity: 0.4;}
+.social-div .link:nth-last-of-type(5):hover::before{background: #bb4091;}
+.social-div .link:nth-last-of-type(4):hover::before{background: #1d9bf0;}
+.social-div .link:nth-last-of-type(3):hover::before{background: #25d366;}
+.social-div .link:nth-last-of-type(2):hover::before{background: #0077b7;}.social-div .link:nth-last-of-type(1):hover::before{background: #0a66c2;}
+.social-div .link:hover::before{
+    transform: translate(-4px,-4px);
+    filter: blur(10px);
+}
+.social-div .link i{font-size: 1.5em; transition: all 0.4s;}
+.social-div .link:hover i{color:#c8c8c8; transform: rotate(45deg);}
+.social-div .link:hover i.instagram{color: #bb4091;}
+.social-div .link:hover i.twitter{color:#1d9bf0 ;}
+.social-div .link:hover i.whatsapp{color:#25d366 ;}
+.social-div .link:hover i.linkedin{color:#0077b7 ;}
+.social-div .link:hover i.github{color:#0a66c2;}
+/* Social-link end */
+
+#foto-card .card{
+    border: none;
+}
+#foto-card .card{
+    text-align: center;
+    flex: 1 1 35rem;
+}

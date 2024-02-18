@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body{
+  position: relative;
+}
+#scroll-up{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 5rem;
+  margin-bottom: 5rem;
+  z-index: 8989;
+  font-size: 1.5rem;
+  background-color: #0386cc;
+  color:#000;
+  width: 3.2rem;
+  /* border-radius:100%; */
+  text-align: center;
+  line-height: 3.2rem;
+  /* margin: 10px 8px 10px 15px; */
+  vertical-align: middle;
+  transition: .5s linear;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
+}
+#scroll-up:hover{
+  background-color: #48ade4;
+}
+#scroll-up.scroll-collapse{
+ bottom: -30rem;
+  transition: all 1s ease-in;
+}
+/* pre loader start */
+.pre-loader{
+    position: fixed;
+    border:solid #222;
+    background-color: #000;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+.pre-loader.loader-collapse{left: -200%;
+    transition: left 0.5s ease-in-out;
+    -webkit-transition:left 0.5s ease-in-out ;
+        -moz-transition: left 0.5s ease-in-out;
+        -ms-transition:left 0.5s ease-in-out;
+        -o-transition: left 0.5s ease-in-out;
+}
+  /* pre loader end */
+
+
+
+@media (min-width:576px) AND (max-width:991.98px) {
+    #foto-card .card{
+        margin-bottom: 3rem;
+        width: 15rem !important;
+        height: 15rem !important;
+        transition: width .5s ease-in-out, height .5s ease-in-out;
+    }
+}
+
+  @media (max-width:767.98px) {
+    header.bgImage .bgImage-sub{
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    header.bgImage .bgImage-heading{
+        font-size: 1.4rem;
+        line-height: 2rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+    #scroll-up{
+      margin-right: 2rem;
+      margin-bottom: 2rem;
+    }
+    #mainNavbar .navbar-brand{
+        font-size: 1rem;
+        transition: font-size 0.5s ease-in-out;
+        -webkit-transition:font-size 0.5s ease-in-out ;
+        -moz-transition: font-size 0.5s ease-in-out;
+        -ms-transition:font-size 0.5s ease-in-out;
+        -o-transition: font-size 0.5s ease-in-out;
+    }
+    #mainNavbar.navbar-scroll #logo {
+        font-size: 1.05rem;
+    }
+    #textarea-div textarea{
+        height: 12rem;
+     }
+     .footer-bottom{
+      font-size:1.1rem;
+    }
+    /* .footer-bottom a{
+      font-size:2rem;
+    } */
+}
+/*lg devices under*/
+@media (max-width:991.98px) {
+    header.bgImage{
+        padding-top: 7rem;
+        padding-bottom: 3.5rem;
+    }
+    #mainNavbar .navbar-nav .nav-item .nav-link{
+        color: #212529;
+    }
+    .social .social-ul .social-li a i{
+      font-size: 2.5rem;
+  }
+  .edu-card{
+      width: 75%;
+  }
+  .edu-card .row .card-body-div .card-body .card-text p{
+      font-size: 1.019rem;
+      transition: font-size .3s ease-out;
+  }
+  .footer-right #logo{
+    font-size: 1.2rem;
+  }
+}
+@media (min-width:576px) {
+  .footer-right #logo{
+    font-size: 1.6rem;
+  }
+  .footer-bottom ul li{
+    /* transform: scale(1.98); */
+    font-size: 1.4rem;
+    width: 2.2rem;
+    /* height: 3.5rem; */
+    /* border-radius:100%; */
+    text-align: center;
+    line-height: 36px;
+    /* margin: 10px 8px 10px 15px; */
+    vertical-align: middle;
+  }
+}
+@media (min-width:992px) {
+    header.bgImage{
+        padding-top: 15rem;
+        padding-bottom: 15rem;
+    }
+    #mainNavbar.navbar-scroll #logo {
+        font-size: 1.35rem;
+    }
+    #mainNavbar {
+        padding-top: .9rem;
+        padding-bottom: .9rem;
+        border: none;
+        background-color: transparent;
+        transition: background-color 0.8s ease-in-out;
+        transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+        -webkit-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out ;
+        -moz-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+        -ms-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+        -o-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+    }
+    #mainNavbar .navbar-brand{
+        font-size: 1.6rem;
+        transition: font-size 0.5s ease-in-out;
+        -webkit-transition:font-size 0.5s ease-in-out ;
+        -moz-transition: font-size 0.5s ease-in-out;
+        -ms-transition:font-size 0.5s ease-in-out;
+        -o-transition: font-size 0.5s ease-in-out;
+    }
+    #mainNavbar .navbar-nav .nav-item{
+        margin-right: 1rem;
+    }#mainNavbar .navbar-nav .nav-item:last-child{
+        margin-right: 0;
+    }
+    .edu-card{
+        width: 80%;
+    }
+    .footer-right #logo{
+      font-size: 1rem;
+    }
+    
+   
+}
+@media (min-width:1200px) {
+  .footer-right #logo{
+    font-size: 1.3rem;
+  }
+}

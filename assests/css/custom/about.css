@@ -1,0 +1,62 @@
+
+/*about-section*/
+#about{
+    border-radius: 10px;
+}
+/* about-profile-img start */
+.container-img{
+    perspective: 800px;
+}
+.container-img .profile-img{
+    width: 15rem;
+    height: 17rem;
+    transform-style: preserve-3d;
+    position: relative;
+    transition: transform .75s cubic-bezier(0.4,0.03,0.5,0.9);
+    background-color: #333;
+    border-radius: 10px;
+    outline: 1px solid rgba(15, 15, 15, 0.5);
+    /* outline-offset: -8px; */
+}
+.container-img .profile-img .card-profile-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    outline-offset: 5px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    /* opacity: .9; */
+    /* transition: transform .85s; */
+    /* border-radius: 10px;box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.container-img .profile-img:hover{
+    transform: scale(1.05);
+}
+/* about-profile-img end */
+
+/*about-card start*/
+.about-card{
+    background-color: #d8d8d8d3;
+    color: #353535;
+    padding: 3.5rem .6rem 7rem .6rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.about-card .about-content .about-content-title{
+    color: #292929;
+    font-family: "Koulen";
+}
+.about-card .about-content .about-content-title:nth-child(2){
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #353535;
+}
+.about-content .about-content-description{
+    font-weight: 500;
+}
+/*about-card end*/
+

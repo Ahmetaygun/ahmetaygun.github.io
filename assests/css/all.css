@@ -1,0 +1,22 @@
+/*bootstrap css*/
+@import url(bootstrap/bootstrap.min.css);
+
+/*my custom css*/
+@import url(custom/extra.css);
+@import url(custom/header.css);
+@import url(custom/about.css);
+@import url(custom/education.css);
+@import url(custom/skills.css);
+@import url(custom/contact.css);
+@import url(custom/footer.css);
+
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/*bootstrap icons*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
