@@ -1,49 +1,198 @@
-*{
+/* assets/css/custom/extra.css (Responsive ve Genel Ayarlar) */
+
+/* --- GENEL AYARLAR --- */
+/* --- MAC PENCERE TEMASI (ORTAK KULLANIM) --- */
+.mac-card-style {
+    background: #ffffff !important;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 40px 20px 20px 20px !important; /* Üst boşluk noktalar için artırıldı */
+    position: relative;
+    overflow: hidden;
+    border: none !important;
+    transition: transform 0.3s ease;
+}
+
+/* Mac Noktaları (Kırmızı, Sarı, Yeşil) */
+.mac-card-style::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f56;
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+    z-index: 5;
+}
+
+.mac-card-style:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Timeline İçin Özel Ayar (Ok işaretini bozmamak için) */
+.timeline .timeline-content.mac-card-style {
+    padding-top: 45px !important; /* Başlıklar noktalara değmesin */
+}
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-body{
-  position: relative;
+
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif !important; /* Tüm siteye Poppins zorunluluğu */
+    background-color: #f8f9fa;
 }
-#scroll-up{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin-right: 5rem;
-  margin-bottom: 5rem;
-  z-index: 8989;
-  font-size: 1.5rem;
-  background-color: #0386cc;
-  color:#000;
-  width: 3.2rem;
-  /* border-radius:100%; */
-  text-align: center;
-  line-height: 3.2rem;
-  /* margin: 10px 8px 10px 15px; */
-  vertical-align: middle;
-  transition: .5s linear;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
-    /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
+
+/* --- HEADER ARKA PLAN RESMİ (MODERN AYAR) --- */
+/* Eski basit background yerine bu gelişmiş yapıyı kullanıyoruz */
+header.bgImage {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Taşmaları gizle */
+    background-color: #020617; /* Resim yüklenmezse koyu renk */
 }
-#scroll-up:hover{
-  background-color: #48ade4;
+
+/* 1. Katman: Arka Plan Resmi */
+header.bgImage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Resmi buraya çağırıyoruz - Dosya adını 'header-bg.jpg' yapmayı unutma */
+    background: url('../../img/header.jpeg'); 
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    /* SİHİRLİ KOD: Seçtiğin resim ne renk olursa olsun MAVİ tonlarına çevirir */
+    /* Eğer resmin zaten maviyse bu satırı silebilirsin: filter: none; */
+    filter: hue-rotate(200deg) brightness(0.85); 
+    
+    z-index: 0; /* En altta kalsın */
 }
-#scroll-up.scroll-collapse{
- bottom: -30rem;
-  transition: all 1s ease-in;
+
+/* 2. Katman: Koyu Perde (Overlay) */
+/* Yazıların okunması için resmin üzerine koyu bir katman atar */
+header.bgImage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Hafif mavi-siyah geçişli perde */
+    background: linear-gradient(to bottom, rgba(2, 6, 23, 0.85), rgba(1, 94, 145, 0.2));
+    z-index: 1; /* Resmin üstünde, yazının altında */
 }
-/* pre loader start */
-.pre-loader{
+
+/* 3. Katman: İçerik (Yazılar) */
+header.bgImage .container {
+    position: relative;
+    z-index: 2; /* En üstte görünsün */
+}
+
+/* Header içindeki yazı ayarları (Eski fontları ezdik) */
+header.bgImage .bgImage-sub {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+header.bgImage .bgImage-heading {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- SOLDAKİ 3D RESİM EFEKTİ (GELİŞMİŞ) --- */
+/* Resmin kapsayıcısına derinlik (perspektif) veriyoruz */
+#foto-card {
+    perspective: 1000px;
+}
+
+#foto-card img {
+    animation: floatImage 5s ease-in-out infinite; /* Süzülme efekti süresi 5s */
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,0.4)); /* Başlangıç gölgesi */
+    max-height: 450px; 
+    object-fit: contain;
+    transition: all 0.3s ease; /* Hover durumları için geçiş */
+}
+
+/* Daha gerçekçi 3D Süzülme Animasyonu */
+@keyframes floatImage {
+    0% { 
+        transform: translateY(0) rotate(0deg) scale(1);
+        filter: drop-shadow(0 15px 15px rgba(0,0,0,0.4));
+    }
+    50% { 
+        /* Yukarı çıkarken hafifçe dön ve büyü (yaklaşma hissi) */
+        transform: translateY(-20px) rotate(2deg) scale(1.02); 
+        /* Yukarıdayken gölge uzaklaşır ve bulanıklaşır */
+        filter: drop-shadow(0 35px 25px rgba(0,0,0,0.2)); 
+    }
+    100% { 
+        transform: translateY(0) rotate(0deg) scale(1);
+        filter: drop-shadow(0 15px 15px rgba(0,0,0,0.4));
+    }
+}
+
+/* --- YUKARI ÇIK BUTONU --- */
+#scroll-up {
     position: fixed;
-    border:solid #222;
+    bottom: 30px;
+    right: 30px;
+    z-index: 8989;
+    font-size: 1.2rem;
+    background-color: #333;
+    color: #fff;
+    width: 3.5rem;
+    height: 3.5rem;
+    text-align: center;
+    line-height: 3.5rem;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
+
+#scroll-up:hover {
+    background-color: #015e91;
+    transform: translateY(-5px);
+    opacity: 1;
+    box-shadow: 0 8px 20px rgba(1, 94, 145, 0.4);
+}
+
+#scroll-up.scroll-collapse {
+    bottom: -100px;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+}
+
+/* --- PRE-LOADER --- */
+.pre-loader {
+    position: fixed;
+    border: solid #222;
     background-color: #000;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -52,19 +201,53 @@ body{
     align-items: center;
     z-index: 10000;
 }
-.pre-loader.loader-collapse{left: -200%;
+
+.pre-loader.loader-collapse {
+    left: -200%;
     transition: left 0.5s ease-in-out;
-    -webkit-transition:left 0.5s ease-in-out ;
-        -moz-transition: left 0.5s ease-in-out;
-        -ms-transition:left 0.5s ease-in-out;
-        -o-transition: left 0.5s ease-in-out;
 }
-  /* pre loader end */
 
+/* --- HEADER SOSYAL MEDYA İKONLARI (Kutucuklu) --- */
+.social-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
 
+.social-icon-box:hover {
+    background-color: #015e91;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(1, 94, 145, 0.4);
+    color: #fff;
+    border-color: #015e91;
+}
 
-@media (min-width:576px) AND (max-width:991.98px) {
-    #foto-card .card{
+/* --- RESPONSIVE AYARLAR --- */
+/* Büyük ekranlarda (1400px üstü) tekrar rahatlatabilirsin */
+@media (min-width: 1400px) {
+    #mainNavbar .container {
+        max-width: 1320px !important;
+    }
+    #mainNavbar .navbar-nav .nav-item .nav-link {
+        font-size: 1rem;
+    }
+    #mainNavbar .navbar-nav .nav-item {
+        margin-right: 1.2rem;
+    }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+    #foto-card .card {
         margin-bottom: 3rem;
         width: 15rem !important;
         height: 15rem !important;
@@ -72,125 +255,352 @@ body{
     }
 }
 
-  @media (max-width:767.98px) {
-    header.bgImage .bgImage-sub{
+@media (max-width: 767.98px) {
+    header.bgImage .bgImage-sub {
         font-size: 1rem;
         line-height: 1.2rem;
     }
-    header.bgImage .bgImage-heading{
+
+    header.bgImage .bgImage-heading {
         font-size: 1.4rem;
         line-height: 2rem;
-        font-weight: 500;
+        font-weight: 600;
         margin-bottom: 2rem;
     }
-    #scroll-up{
-      margin-right: 2rem;
-      margin-bottom: 2rem;
-    }
-    #mainNavbar .navbar-brand{
+
+    #scroll-up {
+        width: 3rem;
+        height: 3rem;
+        line-height: 3rem;
         font-size: 1rem;
-        transition: font-size 0.5s ease-in-out;
-        -webkit-transition:font-size 0.5s ease-in-out ;
-        -moz-transition: font-size 0.5s ease-in-out;
-        -ms-transition:font-size 0.5s ease-in-out;
-        -o-transition: font-size 0.5s ease-in-out;
+        right: 20px;
+        bottom: 20px;
     }
-    #mainNavbar.navbar-scroll #logo {
-        font-size: 1.05rem;
+
+    #mainNavbar .navbar-brand {
+        font-size: 1.2rem;
+        font-weight: 700;
     }
-    #textarea-div textarea{
-        height: 12rem;
-     }
-     .footer-bottom{
-      font-size:1.1rem;
+
+    #textarea-div textarea {
+        height: 10rem;
     }
-    /* .footer-bottom a{
-      font-size:2rem;
-    } */
+
+    .footer-bottom {
+        font-size: 0.9rem;
+    }
+    
+    .edu-card, .project-card, .about-card {
+        width: 100% !important; 
+        margin-bottom: 20px;
+    }
 }
-/*lg devices under*/
-@media (max-width:991.98px) {
-    header.bgImage{
+
+@media (max-width: 991.98px) {
+    header.bgImage {
         padding-top: 7rem;
         padding-bottom: 3.5rem;
     }
-    #mainNavbar .navbar-nav .nav-item .nav-link{
+
+    #mainNavbar .navbar-nav .nav-item .nav-link {
         color: #212529;
     }
-    .social .social-ul .social-li a i{
-      font-size: 2.5rem;
-  }
-  .edu-card{
-      width: 75%;
-  }
-  .edu-card .row .card-body-div .card-body .card-text p{
-      font-size: 1.019rem;
-      transition: font-size .3s ease-out;
-  }
-  .footer-right #logo{
-    font-size: 1.2rem;
-  }
+
+    .social .social-ul .social-li a i {
+        font-size: 2rem;
+    }
+
+    .social-icons-container {
+        justify-content: center !important;
+        margin-bottom: 2rem;
+    }
+    
+    #social-h5 {
+        margin-top: 1.5rem;
+    }
+
+    .edu-card {
+        width: 95%;
+        margin: 0 auto 20px auto;
+    }
+
+    .footer-right #logo {
+        font-size: 1.2rem;
+    }
 }
-@media (min-width:576px) {
-  .footer-right #logo{
-    font-size: 1.6rem;
-  }
-  .footer-bottom ul li{
-    /* transform: scale(1.98); */
-    font-size: 1.4rem;
-    width: 2.2rem;
-    /* height: 3.5rem; */
-    /* border-radius:100%; */
-    text-align: center;
-    line-height: 36px;
-    /* margin: 10px 8px 10px 15px; */
-    vertical-align: middle;
-  }
-}
-@media (min-width:992px) {
-    header.bgImage{
+
+@media (min-width: 992px) {
+    header.bgImage {
         padding-top: 15rem;
         padding-bottom: 15rem;
     }
+
     #mainNavbar.navbar-scroll #logo {
         font-size: 1.35rem;
     }
+
     #mainNavbar {
-        padding-top: .9rem;
-        padding-bottom: .9rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
         border: none;
         background-color: transparent;
-        transition: background-color 0.8s ease-in-out;
-        transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-        -webkit-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out ;
-        -moz-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-        -ms-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-        -o-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-    }
-    #mainNavbar .navbar-brand{
-        font-size: 1.6rem;
-        transition: font-size 0.5s ease-in-out;
-        -webkit-transition:font-size 0.5s ease-in-out ;
-        -moz-transition: font-size 0.5s ease-in-out;
-        -ms-transition:font-size 0.5s ease-in-out;
-        -o-transition: font-size 0.5s ease-in-out;
-    }
-    #mainNavbar .navbar-nav .nav-item{
-        margin-right: 1rem;
-    }#mainNavbar .navbar-nav .nav-item:last-child{
-        margin-right: 0;
-    }
-    .edu-card{
-        width: 80%;
-    }
-    .footer-right #logo{
-      font-size: 1rem;
+        transition: all 0.5s ease-in-out;
     }
     
-   
+/* Navbar aşağı inince (Scrolled) */
+/* --- NAVBAR AYARLARI --- */
+
+/* 1. Varsayılan Durum (Sayfanın en tepesi) */
+#mainNavbar{
+    background: transparent !important;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    transition: all 0.4s ease;
+    box-shadow: none;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
 }
-@media (min-width:1200px) {
-  .footer-right #logo{
-    font-size: 1.3rem;
-  }
+
+.navbar,
+.navbar-dark{
+    background: transparent !important;
+}
+
+/* Kaydırılınca efekt */
+#mainNavbar.scrolled {
+    background-color: rgba(26, 27, 38, 0.70) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+    #mainNavbar .navbar-brand {
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+/* Navbar'ın genişliğini container yerine daha geniş tutalım */
+    #mainNavbar .container {
+        max-width: 98% !important; /* Kenarlara biraz daha yayılmasını sağlar */
+    }
+    #mainNavbar .navbar-nav .nav-item {
+        margin-right: 0.8rem;
+    }
+    #mainNavbar .navbar-nav .nav-item .nav-link {
+        font-size: 0.9rem; /* Standart boyut */
+        white-space: nowrap; /* Yazıların alt satıra düşmesini engeller */
+    }
+
+    #mainNavbar .navbar-nav .nav-item:last-child {
+        margin-right: 0;
+    }
+
+    .edu-card {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .footer-right #logo {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .footer-right #logo {
+        font-size: 1.3rem;
+    }
+}
+/* --- MAIN TIMELINE GENEL YAPISI --- */
+.main-timeline {
+    position: relative;
+}
+
+/* Ortadaki Dikey Çizgi */
+.main-timeline::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: #015e91; /* Tema Rengi */
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.timeline {
+    position: relative;
+    margin-bottom: 30px;
+    /* Float temizliği için */
+    overflow: hidden; 
+}
+
+/* --- KART YAPISI (SAĞ/SOL AYARLARI) --- */
+
+/* Varsayılan (Tek Numaralılar - Sağda) */
+.timeline .timeline-content {
+    width: 45%;
+    float: right;
+    position: relative;
+    border-radius: 10px;
+    /* Mac Card Style zaten padding ve bg veriyor, burada sadece pozisyonu ayarlıyoruz */
+    transition: all 0.3s ease;
+}
+
+/* Çift Numaralılar (Solda) */
+.timeline:nth-child(even) .timeline-content {
+    float: left;
+}
+
+/* --- OK İŞARETLERİ (ÜÇGENLER) --- */
+
+/* Sağdaki kartın solu gösteren oku */
+.timeline .timeline-content::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -10px; /* Kartın soluna yapışık */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #fff; /* Kart rengiyle aynı olmalı */
+}
+
+/* Soldaki kartın sağı gösteren oku */
+.timeline:nth-child(even) .timeline-content::after {
+    left: auto;
+    right: -10px; /* Kartın sağına yapışık */
+    border-right: none;
+    border-left: 10px solid #fff;
+}
+
+/* --- ORTA İKON (NOKTA) --- */
+.timeline .timeline-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 4px solid #015e91; /* Tema rengi çerçeve */
+    border-radius: 50%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.7); /* Etrafında hafif beyazlık */
+}
+
+/* --- TARİH ETİKETLERİ --- */
+
+/* Sağdaki kartın tarihi (Solda durur) */
+.timeline .date {
+    position: absolute;
+    top: 20px;
+    right: 53%; /* Çizginin sol tarafında */
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #015e91;
+    text-align: right;
+    z-index: 1;
+}
+
+/* Soldaki kartın tarihi (Sağda durur) */
+.timeline:nth-child(even) .date {
+    right: auto;
+    left: 53%; /* Çizginin sağ tarafında */
+    text-align: left;
+}
+
+/* --- LOGO VE ROZET AYARLARI --- */
+.tech-badge {
+    display: inline-block;
+    background-color: #e3f2fd;
+    color: #015e91;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #bbdefb;
+}
+
+/* --- MOBİL UYUMLULUK (Responsive) --- */
+@media screen and (max-width: 767px) {
+    /* Çizgiyi en sola al */
+    .main-timeline::before {
+        left: 20px;
+    }
+
+    /* Kartların hepsini sağa al ve genişlet */
+    .timeline .timeline-content,
+    .timeline:nth-child(even) .timeline-content {
+        width: 85%;
+        float: right;
+        margin-left: 0;
+    }
+
+    /* İkonları sola çek */
+    .timeline .timeline-icon {
+        left: 20px;
+    }
+
+    /* Ok işaretlerinin hepsini sola çevir */
+    .timeline .timeline-content::after,
+    .timeline:nth-child(even) .timeline-content::after {
+        left: -10px;
+        right: auto;
+        border-left: none;
+        border-right: 10px solid #fff;
+    }
+
+    /* Tarihi kartın üstüne taşı (Mobilde yan yana sığmaz) */
+    .timeline .date,
+    .timeline:nth-child(even) .date {
+        position: relative;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        text-align: left;
+        margin-bottom: 5px;
+        margin-left: 15%; /* Kart hizasına gelmesi için */
+        color: #444;
+        font-size: 0.85rem;
+    }
+}
+/* --- MOBİL MENÜ DÜZENLEMESİ (Offcanvas) --- */
+.offcanvas {
+    background-color: #1a1b26 !important; /* Header ile uyumlu koyu renk */
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.offcanvas .offcanvas-title {
+    color: #fff !important; /* "Menü" başlığı beyaz olsun */
+}
+
+.offcanvas .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Kapat butonunu beyaz yapar */
+}
+
+/* Mobildeki Linklerin Rengi */
+@media (max-width: 991.98px) {
+    #mainNavbar .navbar-nav .nav-item .nav-link {
+        color: rgba(255, 255, 255, 0.85) !important; /* Yazıları görünür yap */
+        border-bottom: 1px solid rgba(255,255,255,0.05); /* Şık bir çizgi ekle */
+        padding: 10px 0;
+    }
+    
+    #mainNavbar .navbar-nav .nav-item .nav-link:hover {
+        color: #015e91 !important; /* Hover rengin */
+        padding-left: 10px; /* Hoverda hafif sağa kayma efekti */
+        transition: all 0.3s ease;
+    }
 }

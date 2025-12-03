@@ -1,4 +1,12 @@
 window.sr=new ScrollReveal();
+const sr = ScrollReveal({
+    duration: 500,
+    delay: 150,
+    distance: "25px",
+    easing: "ease-out",
+    reset: false
+});
+
 sr.reveal('.headline');
 // sr.reveal('.reveal1',{
 //     distance:"100px",

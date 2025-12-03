@@ -1,161 +1,213 @@
-/*contact div start*/
-.contact-div{
-    /* border:2px solid; */
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    border-radius: 10px;
+/* assets/css/custom/contact.css */
+
+/* --- ANA PENCERE KARTI --- */
+.contact-div {
+    background-color: #fff; /* Kartın kendisi BEYAZ */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Modern, yumuşak gölge */
+    border-radius: 12px;
     transform-style: preserve-3d;
     position: relative;
-    transition:  box-shadow .75s ease-in-out;
-    -webkit-transition: box-shadow 0.5s ease-in-out ;
-    -moz-transition:  box-shadow 0.5s ease-in-out;
-    -ms-transition: box-shadow 0.5s ease-in-out;
-    -o-transition:  box-shadow 0.5s ease-in-out;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    margin-top: 1rem;
+    overflow: hidden; /* Köşelerin düzgün görünmesi için */
 }
-.contact-div:hover{
-    /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+.contact-div:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
 }
-.contact-div .contact-container .row .contact-header{
-    display:flex;
-    justify-content:space-between;
+
+/* --- PENCERE ÜST BARI (Header) --- */
+.contact-div .contact-container .row .contact-header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    background-color: #e2e2e2;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    padding:1rem 0;
-    /* border:2px solid #018d35; */
+    background-color: #e2e2e2; /* Mac pencere grisi */
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #d1d1d1;
+    /* Köşeleri sadece üst kısımda yuvarla */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
-.contact-div .contact-container .row .contact-header .contact-header-left{
+
+/* Sol Butonlar (Kapat, Küçült, Büyüt) */
+.contact-div .contact-container .row .contact-header .contact-header-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-left: .8rem;
-    /* border: 2px solid #0077b7; */
-
+    padding-left: 1rem;
 }
-.contact-div .contact-container .row .contact-header .contact-header-left .contact-header-button{
+
+.contact-header-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
     display: inline-block;
-    width: .65rem;
-    height: .65rem;
-    background-color: #fff;
-    border-radius: 10px;    
-}
-.contact-div .contact-container .row .contact-header .contact-header-left .contact-header-button:not(.contact-div .contact-container .row .contact-header .contact-header-left .contact-header-button:first-child){
-    margin-left: .6rem;
 }
 
-.contact-div .contact-container .row .contact-header .contact-header-left .contact-header-button.close{
-background: #ed1c6f;
-}
-.contact-div .contact-container .row .contact-header .contact-header-left .contact-header-button.maximize{
-    background: #e8e925;
-    
-}
-.contact-div .contact-container .row .contact-header .contact-header-left .contact-header-button.minimize{
-    background: #74c54f;
-}
-.contact-div .contact-container .row .contact-header .contact-header-mid{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 900;
-    color: #363636;
+.contact-header-button.close { background: #ff5f56; border: 1px solid #e0443e; }
+.contact-header-button.minimize { background: #ffbd2e; border: 1px solid #dea123; }
+.contact-header-button.maximize { background: #27c93f; border: 1px solid #1aab29; }
+
+/* Orta Başlık */
+.contact-div .contact-container .row .contact-header .contact-header-mid {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.contact-div .contact-container .row .contact-header .contact-header-rigth{
+/* Sağ Noktalar */
+.contact-div .contact-container .row .contact-header .contact-header-rigth {
+    padding-right: 1rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-right:.8rem;
-    /* border:2px solid #c0392b; */
-}
-.contact-div .contact-container .row .contact-header .contact-header-rigth .contact-header-dot{
-    display:inline-block;
-    align-items: center;
-    width: .4rem;
-    height: .4rem;
-    background-color: #474747;
-    border-radius: 10px;
-    
-}
-.contact-div .contact-container .row .contact-header .contact-header-rigth .contact-header-dot:not(.contact-div .contact-container .row .contact-header .contact-header-rigth .contact-header-dot:last-child){
-    margin-right: .27rem;
 }
 
-.contact-div .contact-container .row .contact-body{
-    background-color: #d1d1d1;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    height: 100%;
+.contact-header-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin-left: 4px;
 }
-.contact-div .contact-container .row .contact-body .contact-body-left-item{
-    /* border: 2px solid #b7003d; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+/* --- İÇ GÖVDE (Contact Body) - Burayı BEYAZ yaptık --- */
+.contact-div .contact-container .row .contact-body {
+    background-color: #ffffff !important; /* Arka plan kesinlikle beyaz */
+    padding: 3rem 2rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
-.contact-div .contact-container .row .contact-body .contact-body-left-item .contact-body-left-item-text{
-    display: inline-flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    margin-left: auto;
-    margin-right: auto;
-    /* border: 2px solid #0077b7; */
-    margin-top: 2rem;
-    margin-bottom: 1.6rem;
+
+/* --- SOL TARAF (Yazı ve Resim) --- */
+.contact-body-left-item-text {
+    text-align: center;
+    margin-bottom: 2rem;
 }
-.contact-div .contact-container .row .contact-body .contact-body-left-item .contact-body-left-item-text:after{
+
+.contact-body-left-item-text span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2c3e50; /* Koyu Lacivert */
+    display: block;
+    line-height: 1.1;
+}
+
+/* Yazı altındaki dekoratif çizgi */
+.contact-body-left-item-text::after {
     content: "";
     display: block;
-    width: 47px;
-    height: 4px;
-    background-color: rgb(46, 46, 46);
-}
-.contact-div .contact-container .row .contact-body .contact-body-left-item .contact-body-left-item-text span{
-    font-size: 2.5rem;
-}
-
-.contact-body-right-item #form-contact .contact-submit-button{
-    display: flex;
-    justify-content: end;
-}
-.contact-body-right-item #form-contact input,
-.contact-body-right-item #form-contact textarea{
+    width: 60px;
+    height: 5px;
+    background-color: #2c3e50;
+    margin: 15px auto 0 auto;
     border-radius: 10px;
-    transition: all .25s ease-in-out;
-    background-color: #c9c9c9;
-    border: none;
-    border-bottom: 2px solid #474747;
-    padding-top: 2.2rem;
-    padding-bottom: 1.4rem;
-    padding-left: 1.1rem;
-}
-.contact-body-right-item #form-contact input:focus,
-.contact-body-right-item #form-contact textarea:focus{
-    -webkit-box-shadow: 0px 0px 22px 4px rgba(152,240,222,1);
-    -moz-box-shadow: 0px 0px 22px 4px rgba(152,240,222,1);
-    box-shadow: 0px 0px 22px 4px rgba(152,240,222,1);
-}
-.contact-body-right-item #form-contact .contact-submit-button button{
-    outline: 1px solid #86868680;
-    background-color: #c6ece5;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-    padding: .9rem .6rem;
-    transition: all .4s ease-in-out;
-}
-.contact-body-right-item #form-contact .contact-submit-button button:hover{
-    transform: scale(.995);
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
-#message-count{
-    transition: all .4s ease-in;
+/* Sol resim */
+.contact-body-left-item-img {
+    display: flex;
+    justify-content: center;
 }
+.contact-body-left-item-img img {
+    max-width: 85%;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+/* --- SAĞ TARAF (Form Alanları) --- */
+.contact-body-right-item {
+    margin-top: 1rem;
+}
+
+/* Input ve Textarea Stili */
+#form-contact input,
+#form-contact textarea {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Input içi çok açık gri (Modern) */
+    border: 1px solid #e0e0e0;
+    padding: 1rem 1rem 1rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+}
+
+/* Input Focus (Tıklayınca) */
+#form-contact input:focus,
+#form-contact textarea:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: #015e91; /* Odaklanınca mavi çerçeve */
+    box-shadow: 0 0 0 4px rgba(1, 94, 145, 0.1); /* Hafif mavi gölge */
+}
+
+/* Etiketler (Labels) */
+.form-floating > label {
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.form-floating > label i {
+    color: #015e91; /* İkonlar mavi olsun */
+    margin-right: 8px;
+}
+
+/* Hata Mesajları */
+.invalid-feedback {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* --- GÖNDER BUTONU --- */
+#btn-contact {
+    background-color: #2c3e50; /* Koyu Lacivert/Siyah - Diğer kartlarla uyumlu */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 35px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#btn-contact:hover {
+    background-color: #015e91; /* Hoverda Mavi */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(1, 94, 145, 0.2);
+}
+
+#btn-contact:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
 textarea {
     resize: none;
-    
- }
- #textarea-div textarea{
-    height: 8.6rem;
- }
+    height: 140px !important;
+}
+
+/* Karakter Sayacı */
+#message-count {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 5px;
+    display: block;
+    text-align: right;
+    font-weight: 500;
+}

@@ -1,0 +1,41 @@
+/* --- SERTİFİKA RESİM ALANI (MAC PENCERE TASARIMI) --- */
+.certificate-img-container {
+    width: 100%;
+    height: 220px; /* Biraz daha yüksek, ferah dursun */
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    background-color: #f8f9fa; /* Pencere içi gri fon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Mac noktalarını yerleştirmek için gerekli */
+    border-radius: 10px 10px 0 0; /* Kartın üst köşelerine uyum */
+}
+
+/* MAC NOKTALARI (Sol üst köşe) */
+.certificate-img-container::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f56; /* Kırmızı */
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f; /* Sarı ve Yeşil gölge */
+    z-index: 10;
+}
+
+/* RESİM AYARLARI */
+.certificate-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Resmi kesmeden sığdır */
+    padding: 30px 15px 15px 15px; /* Üstten 30px boşluk (noktalar resmin üstüne binmesin diye) */
+    transition: transform 0.3s ease; /* Hover efekti için geçiş */
+}
+
+/* KARTA GELİNCE RESİM HAFİF BÜYÜSÜN (HOVER) */
+.project-card:hover .certificate-img-container img {
+    transform: scale(1.05);
+}

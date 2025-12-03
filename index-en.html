@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ahmet Aygün">
+    <meta name="description" content="Ahmet Aygün Kişisel Web Sitesi">
+    <meta name="keywords" content="website, web, tasarım, dizayn, yazılım, programlama, kişisel, blog, web, site">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6TD0LKQ3C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D6TD0LKQ3C');
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHMBDPYWR5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KHMBDPYWR5');
+    </script>
+
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    
+    <!-- Custom CSS Dosyaları -->
+    <link rel="stylesheet" href="assests/css/custom/extra.css">
+    <link rel="stylesheet" href="assests/css/custom/about.css">
+    <link rel="stylesheet" href="assests/css/custom/education.css">
+    <!-- timeline.css'i buradan kaldırdık, aşağıya style içine ekledik ki kesin çalışsın -->
+    <link rel="stylesheet" href="assests/css/custom/skills.css">
+    <link rel="stylesheet" href="assests/css/custom/projects.css">
+    <link rel="stylesheet" href="assests/css/custom/contact.css">
+
+    <!-- Font icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- scrollReveal js -->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <title>AHMET AYGÜN Kişisel Web Sitesi</title>
+    <script>
+        ScrollReveal({ reset: true });
+    </script>
+     <!-- Typed.js -->
+    <script src="assests/js/typed.js"></script>
+</head>
+<style>
+    /* Yedek importlar */
+    @import url(assests/css/all.css);
+
+    /* Sertifika Resim Ayarı */
+    .certificate-img-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-bottom: 1px solid #eee;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .certificate-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 10px;
+    }
+
+    /* --- TIMELINE (DENEYİMLER) ÖZEL STİLİ --- */
+    .main-timeline {
+        position: relative;
+    }
+    /* Dikey Çizgi */
+    .main-timeline::before {
+        content: "";
+        width: 2px;
+        height: 100%;
+        background: #015e91; /* Tema Rengi */
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .timeline {
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    /* Sağ-Sol Yerleşimi */
+    .timeline .timeline-content {
+        width: 45%;
+        float: left;
+        padding: 20px;
+        position: relative;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .timeline:nth-child(even) .timeline-content {
+        float: right;
+    }
+
+    /* Kartın üzerindeki küçük üçgen */
+    .timeline .timeline-content::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #fff;
+        top: 20px;
+        right: -10px;
+    }
+    .timeline:nth-child(even) .timeline-content::after {
+        border-left: none;
+        border-right: 10px solid #fff;
+        left: -10px;
+    }
+
+    /* Ortadaki Yuvarlak İkon */
+    .timeline .timeline-icon {
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border: 4px solid #015e91;
+        border-radius: 50%;
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    /* Tarih Etiketi */
+    .timeline .date {
+        position: absolute;
+        top: 15px;
+        left: 52%;
+        font-weight: 700;
+        color: #015e91;
+        font-size: 0.9rem;
+    }
+    .timeline:nth-child(even) .date {
+        left: auto;
+        right: 52%;
+        text-align: right;
+    }
+
+    /* Hover Efekti */
+    .timeline .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(1, 94, 145, 0.2);
+    }
+
+    /* Mobil Uyumluluk */
+    @media screen and (max-width: 767px) {
+        .main-timeline::before {
+            left: 20px;
+        }
+        .timeline .timeline-content {
+            width: 85%;
+            float: right;
+            margin-left: 0;
+        }
+        .timeline:nth-child(even) .timeline-content {
+            float: right;
+        }
+        .timeline .timeline-icon {
+            left: 20px;
+        }
+        .timeline .timeline-content::after, 
+        .timeline:nth-child(even) .timeline-content::after {
+            border-left: none;
+            border-right: 10px solid #fff;
+            left: -10px;
+            right: auto;
+        }
+        .timeline .date, 
+        .timeline:nth-child(even) .date {
+            position: relative;
+            left: auto;
+            right: auto;
+            top: 0;
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 0.8rem;
+        }
+    }
+    
+</style>
+
+<body id="main-body">
+    <!-- pre loader -->
+    <div class="pre-loader"><img src="assests/img/loader-3.gif" class="img-fluid" alt="">
+    </div>
+    <a id="scroll-up" class="d-none" title="Yukarı Çık"><i class="fa-solid fa-angle-up"></i></a>
+    
+    <!-- navigation-start -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            
+            <a href="#main-body" class="navbar-brand text-uppercase fw-bold" id="logo">
+                AHMET AYGÜN
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#myNavbar" aria-controls="myNavbar" aria-label="Menü">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="myNavbar" aria-labelledby="canvasLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="canvasLabel">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Kapat"></button>
+                </div>
+                <div class="offcanvas-body">
+<ul class="navbar-nav ms-auto text-uppercase py-lg-2"> 
+    <li class="nav-item"><a href="#main-body" class="nav-link btn-close-canvas">Home</a></li>
+    <li class="nav-item"><a href="#about" class="nav-link btn-close-canvas">About Me</a></li>
+    <li class="nav-item"><a href="#education" class="nav-link btn-close-canvas">Education</a></li>
+    <li class="nav-item"><a href="#experience" class="nav-link btn-close-canvas">Experience</a></li>
+    <li class="nav-item"><a href="#skills" class="nav-link btn-close-canvas">Skills</a></li>
+    <li class="nav-item"><a href="#projects" class="nav-link btn-close-canvas">Projects</a></li>
+    <li class="nav-item"><a href="#certificates" class="nav-link btn-close-canvas">Certificates</a></li>
+    <li class="nav-item"> <a href="#awards" class="nav-link btn-close-canvas">Awards</a> </li>
+    <li class="nav-item"><a href="#contact" class="nav-link btn-close-canvas">Contact</a></li>
+    <li class="nav-item ms-lg-4 mt-3 mt-lg-0 d-flex align-items-center justify-content-center">
+    <a href="index.html" class="btn btn-sm btn-outline-light me-2" style="border-radius: 20px; width: 40px;">TR</a>
+    
+    <a href="#" class="btn btn-sm btn-light fw-bold" style="border-radius: 20px; width: 40px; pointer-events: none;">EN</a>
+</li>
+</ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER START --> 
+    <div id="particles-js"></div>
+    <header class="bgImage text-white headline" id="header-div">
+            <div class="container reveal1">
+                <div class="row d-flex align-items-center">
+                    <!-- SOL: Resim -->
+                    <div id="foto-card" class="col-lg-4 mb-4 mb-lg-0">
+                        <div class="w-75 h-75 ms-auto me-auto card bg-transparent border-0">
+                            <img src="assests/img/faviconBig.png" alt="Ahmet Aygün" class="img-fluid">
+                        </div>
+                    </div>
+                    
+                    <!-- ORTA: Yazı ve Buton -->
+                    <div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="bgImage-sub mb-2 txtReveal">Hello, Welcome!</div>
+<div class="bgImage-heading txtReveal mb-4">Nice to Meet You!</div>
+                        <div class="linkCok">
+                            <a href="#about" id="me-about" class="btnReveal btn btn-outline-light p-3 px-4 text-uppercase fw-bold">
+    Let's Get Started <i class="bi bi-caret-down-fill ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- SAĞ: Sosyal Medya -->
+                    <div class="col-lg-4 mb-4 mb-lg-0 text-center text-lg-start">
+                        <h5 id="social-h5" class="text-center text-uppercase mb-3" style="letter-spacing: 2px; font-size: 0.9rem; opacity: 0.8;">SOCIAL MEDIA</h5>
+                        <hr class="mb-4 mx-auto" style="width: 50px; opacity: 0.5;">
+                        
+                        <div class="social-icons-container d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="https://www.instagram.com/ahmet.aygunnn/" class="social-icon-box" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://twitter.com/AhmetAygunn34" class="social-icon-box" target="_blank" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/in/ahmet-ayg%C3%BCn-7818aa237/" class="social-icon-box" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Ahmetaygun" class="social-icon-box" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://medium.com/@aygun8007" class="social-icon-box" target="_blank" title="Medium"><i class="fa-brands fa-medium"></i></a>
+                        </div>
+                    </div> 
+                </div> 
+            </div>
+    </header>
+    
+    <!-- ABOUT START -->
+<section id="about" style="background-color: #e6e6e6 !important;" class="pt-3 pb-5 headline">
+    <div class="container-fluid about-mainDiv">
+        <h5 class="display-5 text-center css-h5">
+            <i class="bi bi-person-check-fill me-2"></i>ABOUT ME
+        </h5>
+        <hr class="mt-0">
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center justify-content-center mt-4 about-card">
+
+            <div class="col-lg-3 container-img">
+                <div class="shadow-lg rounded-5 bg-light profile-img mb-4 mt-3 mt-lg-0 mb-lg-0 ms-auto me-auto">
+                    <img src="assests/img/me2.png" class="img-fluid card-profile-img" alt="Ahmet Aygün">
+                </div>
+            </div>
+
+            <div class="col-lg-7 ms-lg-4 mt-3 about-content">
+
+                <h2 class="ms-0 mb-0 about-content-title" style="color: #015e91;">
+                    AHMET AYGÜN
+                </h2>
+
+                <span class="about-content-title">
+                    <span id="typed"></span>
+                </span>
+
+                <p class="mt-3 about-content-description">
+                    <span>Hello <i class="bi bi-emoji-smile me-1"></i></span><br>
+
+                    I completed my primary, secondary, and high school education in Istanbul. 
+                    I am currently studying Software Engineering at Inönü University.
+                </p>
+
+                <p class="about-content-description">
+                    Thanks to my strong interest in software development, I have had the opportunity 
+                    to work on various projects and continuously improve myself. 
+                    I have gained experience especially in software testing processes, development, 
+                    and problem-solving.
+
+                    As someone who is eager to learn, I actively follow new technologies 
+                    and focus on improving myself in this dynamic field.
+                </p>
+
+                <p class="about-content-description">
+                    I am mainly specializing in backend development, with a strong focus on 
+                    technologies such as Java and PHP. My goal is to add value to projects using 
+                    my technical skills while producing innovative and effective solutions.
+                </p>
+
+                <p class="about-content-description">
+                    I am a team player with strong communication skills, highly motivated, 
+                    and passionate about learning. I find great excitement in keeping up with the 
+                    ever-evolving technology world, developing new ideas, and bringing them to life.
+
+                    I am always ready to collaborate and take part in exciting new projects!
+                </p>
+
+                <!-- DOWNLOAD CV BUTTON -->
+                <div class="mt-4 text-center text-lg-start">
+                    <a href="assests/img/Ahmet_AygünResume.pdf" target="_blank" class="btn-cv">
+                        <i class="fa-solid fa-file-arrow-down me-2"></i>DOWNLOAD CV
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION START -->
+<section id="education" class="headline mt-0 mb-0 pt-3 pb-5">
+    <div class="container-fluid">
+
+        <h5 class="display-5 text-center css-h5">
+            <i class="fa-solid fa-user-graduate me-2"></i>EDUCATION
+        </h5>
+        <hr class="mt-0">
+
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="card edu-card mt-3">
+                    <div class="row">
+
+                        <div class="col-md-5 card-img-div mt-2 mb-2">
+                            <img src="assests/img/ınonu.jpg" alt="Inonu University" class="card-img">
+                        </div>
+
+                        <div class="col-md-7 card-body-div">
+                            <div class="card-body">
+
+                                <div class="card-title">
+                                    <h3>INONU UNIVERSITY</h3>
+                                    <h5>Faculty of Engineering</h5>
+                                    <h5>Software Engineering</h5>
+                                    <hr>
+                                </div>
+
+                                <div class="card-text">
+                                    <p>
+                                        September 2021 – July 2025 
+                                        <span><i class="fa-solid fa-check ms-1"></i></span>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>                          
+
+                    </div>
+                </div>
+
+            </div>                            
+        </div>          
+    </div>      
+</section>
+
+<!-- EXPERIENCE START -->
+<section id="experience" class="headline mt-0 pt-3 pb-5" style="background-color: #e6e6e6;">
+    <div class="container-fluid">
+
+        <h5 class="display-5 text-center css-h5">
+            <i class="fa-solid fa-briefcase me-2"></i>EXPERIENCE
+        </h5>
+        <hr class="mt-0">
+
+        <div class="container" style="margin-top: 3rem;">
+            <div class="main-timeline">
+
+                <!-- Sirius -->
+                <div class="timeline">
+                    <div class="timeline-icon"></div>
+                    <span class="date">June 2025 – September 2025</span>
+
+                    <div class="timeline-content mac-card-style">
+                        <img src="assests/img/sirius-logo.png" alt="Sirius Logo" class="timeline-logo"
+                             style="width:60px;height:60px;object-fit:contain;margin-bottom:15px;background:#f8f9fa;padding:5px;border-radius:8px;">
+
+                        <h5 class="title" style="font-weight:700; color:#2c3e50;">
+                            Backend & Mobile Developer
+                        </h5>
+
+                        <p class="description" style="color:#666; margin-bottom:10px;">
+                            <strong>Sirius Interactive</strong> (Professional Experience – 3 months)<br>
+                            Developed secure and scalable backend architectures for web and mobile applications.
+                            Actively participated in API integrations and database management processes.
+                        </p>
+
+                        <div>
+                            <span class="tech-badge">Backend</span>
+                            <span class="tech-badge">Mobile Dev</span>
+                            <span class="tech-badge">API</span>
+                            <span class="tech-badge">Database</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAV -->
+                <div class="timeline">
+                    <div class="timeline-icon"></div>
+                    <span class="date">July 2024 – October 2024</span>
+
+                    <div class="timeline-content mac-card-style">
+                        <img src="assests/img/tav-logo.png" alt="TAV Logo" class="timeline-logo"
+                             style="width:60px;height:60px;object-fit:contain;margin-bottom:15px;background:#f8f9fa;padding:5px;border-radius:8px;">
+
+                        <h5 class="title" style="font-weight:700; color:#2c3e50;">
+                            QA Intern
+                        </h5>
+
+                        <p class="description" style="color:#666; margin-bottom:10px;">
+                            <strong>TAV Technologies</strong> (Internship – 3 months)<br>
+                            Took part in the Ground Handling Suite (GHS) and Realtime projects.
+                            Created test scenarios and bug reports using Jira and Xray.
+                            Conducted API testing with Postman and performance testing using JMeter.
+                        </p>
+
+                        <div>
+                            <span class="tech-badge">QA Testing</span>
+                            <span class="tech-badge">Jira / Xray</span>
+                            <span class="tech-badge">Postman</span>
+                            <span class="tech-badge">JMeter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KLE -->
+                <div class="timeline">
+                    <div class="timeline-icon"></div>
+                    <span class="date">March 2023 – October 2023</span>
+
+                    <div class="timeline-content mac-card-style">
+                        <img src="assests/img/kle-logo.png" alt="KLE Logo" class="timeline-logo"
+                             style="width:60px;height:60px;object-fit:contain;margin-bottom:15px;background:#f8f9fa;padding:5px;border-radius:8px;">
+
+                        <h5 class="title" style="font-weight:700; color:#2c3e50;">
+                            Software Developer Intern
+                        </h5>
+
+                        <p class="description" style="color:#666; margin-bottom:10px;">
+                            <strong>KLE Information Technologies</strong> (Internship – 7 months)<br>
+                            Completed an intensive training and hands-on practice program focused on
+                            PHP, Laravel, JavaScript, and API development.
+                            Gained experience in corporate office culture, teamwork, and the software project life cycle.
+                        </p>
+
+                        <div>
+                            <span class="tech-badge">PHP</span>
+                            <span class="tech-badge">Laravel</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ASIST -->
+                <div class="timeline">
+                    <div class="timeline-icon"></div>
+                    <span class="date">October 2021 – November 2023</span>
+
+                    <div class="timeline-content mac-card-style">
+                        <img src="assests/img/asist-logo.png" alt="ASIST Logo" class="timeline-logo"
+                             style="width:60px;height:60px;object-fit:contain;margin-bottom:15px;background:#f8f9fa;padding:5px;border-radius:8px;">
+
+                        <h5 class="title" style="font-weight:700; color:#2c3e50;">
+                            Co-Founder & Vice President
+                        </h5>
+
+                        <p class="description" style="color:#666; margin-bottom:10px;">
+                            <strong>ASIST – Intelligent Systems and Defense Technologies Community</strong><br>
+                            Led the establishment of the technology community at Malatya Turgut Özal University.
+                            Took active roles in event organization, team management, and project coordination.
+                        </p>
+
+                        <div>
+                            <span class="tech-badge">Leadership</span>
+                            <span class="tech-badge">Project Management</span>
+                            <span class="tech-badge">Teamwork</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="clear:both;"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- EXPERIENCE END -->
+
+
+    <!-- SKILLS START -->
+    <section id="skills" class="headline mt-0" style="border-radius: 10px;">
+        <div class="container-fluid pt-4 pb-4" style="background-color: #c7c7c7; border-radius: 10px;">
+            <h5 class="display-5 text-center css-h5">
+                <i class='fas fa-award me-2'></i>SKILLS</h5>
+            <hr class="mt-0">
+            <div class="container">
+                <div class="row mt-4 mb-2 justify-content-center skill-container">
+                    
+                    <!-- SOL SÜTUN -->
+                    <div class="col-12 col-md-5 mb-2 mb-md-0 me-lg-3 p-2 skill-col-1">
+                        
+                        <div id="skills-div" class="skills-python mb-4 p-3 pb-4 me-md-5">
+                            <div class="skills-body">
+                                <div class="progressbar-title">
+                                    <div class="language-title">
+                                        <h3><i class="fa-brands fa-python fa-lg me-2"></i>PYTHON</h3>
+                                        <span class="percent-text">85%</span>
+                                    </div>
+                                    <span class="percent" id="python-pourcent"></span>
+                                </div>
+                                <div class="bar-container">
+                                    <span class="progressbar progressgreen" id="progress-python"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-c-sharp mb-4 p-3 pb-4 me-md-5">
+                            <div class="skills-body">
+                                <div class="progressbar-title">
+                                    <div class="language-title">
+                                        <h3><div class="skills-icon d-inline-flex"><i class="fa-solid fa-c"></i><i class="fa-solid fa-hashtag"></i></div></h3>
+                                        <span class="percent-text">55%</span>
+                                    </div>
+                                    <span class="percent" id="c-sharp-pourcent"></span>
+                                </div>
+                                <div class="bar-container">
+                                    <span class="progressbar progressorange" id="progress-c-sharp"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-mysql mb-4 p-3 pb-4 me-md-5">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3><i class="fa-solid fa-database fa-lg me-2"></i>MYSQL</h3>
+                                    <span class="percent-text">80%</span>
+                                </div>
+                                <span class="percent" id="mysql-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progresspurple" id="progress-mysql"></span>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-postgresql mb-4 p-3 pb-4 me-md-5">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3>
+                                        <img src="assests/img/postgre.png" alt="PostgreSQL Icon" class="me-2" style="width: 30px; height: 30px; object-fit: contain; vertical-align: middle;">
+                                        PostgreSQL
+                                    </h3>
+                                    <span class="percent-text">80%</span>
+                                </div>
+                                <span class="percent" id="postgresql-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progressblue" id="progress-postgresql"></span>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-react mb-4 p-3 pb-4 me-md-5">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3><i class="fa-brands fa-react fa-lg me-2"></i>REACT</h3>
+                                    <span class="percent-text">80%</span>
+                                </div>
+                                <span class="percent" id="react-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progressblue" id="progress-react"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAĞ SÜTUN -->
+                    <div class="col-12 col-md-5 ms-lg-3 p-2 skill-col-2">
+                        
+                        <div id="skills-div" class="skills-flutter mb-4 p-3 pb-4 me-md-5">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3><i class="fa-brands fa-flutter fa-lg me-2"></i>FLUTTER</h3>
+                                    <span class="percent-text">90%</span>
+                                </div>
+                                <span class="percent" id="flutter-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progressblue" id="progress-flutter"></span>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-asp mb-4 p-3 pb-4 me-md-5">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3><i class="fa-brands fa-java fa-lg me-2"></i>JAVA</h3> 
+                                    <span class="percent-text">80%</span>
+                                </div>
+                                <span class="percent" id="asp-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progressred" id="progress-asp"></span>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-php mb-4 p-3 pb-4 me-md-5">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3><i class="fa-brands fa-php fa-lg me-2"></i>PHP</h3>
+                                    <span class="percent-text">65%</span>
+                                </div>
+                                <span class="percent" id="php-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progresspurple" id="progress-php"></span>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-js mb-4 p-3 pb-4 me-md-5">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3><i class="fa-brands fa-js-square fa-lg me-2"></i>JAVASCRIPT</h3>
+                                    <span class="percent-text">70%</span>
+                                </div>
+                                <span class="percent" id="js-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progressorange" id="progress-js"></span>
+                            </div>
+                        </div>
+
+                        <div id="skills-div" class="skills-bootstrap p-3 pb-4 me-md-5 mb-md-4">
+                            <div class="progressbar-title">
+                                <div class="language-title">
+                                    <h3><i class="fa-brands fa-bootstrap fa-lg me-2"></i>BOOTSTRAP5</h3>
+                                    <span class="percent-text">99%</span>
+                                </div>
+                                <span class="percent" id="bootstrap-pourcent"></span>
+                            </div>
+                            <div class="bar-container">
+                                <span class="progressbar progressgreen" id="progress-bootstrap"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- PROJECTS START -->
+<section id="projects" class="headline mt-0 pt-3 pb-5">
+    <div class="container-fluid">
+
+        <h5 class="display-5 text-center css-h5">
+            <i class="fa-solid fa-laptop-code me-2"></i>PROJECTS
+        </h5>
+        <hr class="mt-0">
+
+        <div class="container">
+            <div class="row mt-4 justify-content-center">
+
+                <!-- Bebefon -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-solid fa-baby"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Bebefon (AI Cry Detection)</h5>
+                            <p class="project-desc">
+                                AI-powered system running on Raspberry Pi that detects baby cries using Python-based audio processing. The user interface is developed with Flutter.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Flutter</span>
+                                <span class="tech-badge">Raspberry Pi</span>
+                                <span class="tech-badge">AI/ML</span>
+                            </div>
+                            <a href="#" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FitTrack -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">FitTrack – Health Monitoring</h5>
+                            <p class="project-desc">
+                                A health platform connecting dietitians and patients. Includes JWT security, personalized diet plans, and an admin panel.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Spring Boot</span>
+                                <span class="tech-badge">React.js</span>
+                                <span class="tech-badge">PostgreSQL</span>
+                                <span class="tech-badge">JWT</span>
+                            </div>
+                            <a href="https://github.com/Ahmetaygun/FitTrack-Backand-Frontend" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Recommendation System -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-solid fa-film"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Movie Recommendation System</h5>
+                            <p class="project-desc">
+                                AI project recommending movies using the MovieLens dataset with four different algorithms (Cosine Similarity, User-Based CF, etc.).
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Machine Learning</span>
+                                <span class="tech-badge">Data Analysis</span>
+                            </div>
+                            <a href="https://github.com/Ahmetaygun/Movie-Recommendation-System" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pastebin UI -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-brands fa-react"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Pastebin UI</h5>
+                            <p class="project-desc">
+                                React-based frontend of a Pastebin app for secure text sharing. Features JWT authentication interface.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Axios</span>
+                                <span class="tech-badge">Bootstrap</span>
+                            </div>
+                            <a href="https://github.com/Ahmetaygun/pastebin-ui" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pastebin API -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Pastebin API</h5>
+                            <p class="project-desc">
+                                Backend service of the Pastebin app. Stores data securely and manages sessions with JWT authentication.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Spring Boot</span>
+                                <span class="tech-badge">PostgreSQL</span>
+                                <span class="tech-badge">Spring Security</span>
+                            </div>
+                            <a href="https://github.com/Ahmetaygun/pastebin-api" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Forum Platform -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Online Forum Platform</h5>
+                            <p class="project-desc">
+                                Scalable forum platform developed using design patterns like Singleton, Factory, and Builder.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Spring Boot</span>
+                                <span class="tech-badge">Design Patterns</span>
+                                <span class="tech-badge">H2 Database</span>
+                            </div>
+                            <a href="https://github.com/Ahmetaygun/Online-Forum-Platform" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Buddy -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Movie Buddy</h5>
+                            <p class="project-desc">
+                                Capstone project at SistersLab. RESTful service allowing users to create and track movie lists with CRUD operations.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Spring Boot</span>
+                                <span class="tech-badge">JPA / Hibernate</span>
+                                <span class="tech-badge">REST API</span>
+                            </div>
+                            <a href="https://github.com/Ahmetaygun/Movie-Buddy-SpringBoot" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Notes -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-icon-div">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">My Notes</h5>
+                            <p class="project-desc">
+                                User-friendly mobile note-taking app developed with Flutter.
+                            </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Flutter</span>
+                                <span class="tech-badge">Dart</span>
+                                <span class="tech-badge">Mobile App</span>
+                            </div>
+                            <a href="https://github.com/Ahmetaygun/My-Notes" class="btn-project" target="_blank">View <i class="fa-brands fa-github ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- PROJECTS END -->
+
+
+ <!-- CERTIFICATES START -->
+<section id="certificates" class="headline mt-0 pt-3 pb-5" style="background-color: #e6e6e6;">
+    <div class="container-fluid">
+        <h5 class="display-5 text-center css-h5">
+            <i class="fa-solid fa-certificate me-2"></i>CERTIFICATES
+        </h5>
+        <hr class="mt-0">
+
+        <div class="container">
+            <div class="row mt-4 justify-content-center">
+
+                <!-- Teknofest Certificate -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card mac-card-style">
+                        <div class="certificate-img-container">
+                            <img src="assests/img/Teknofest2025.png" alt="Teknofest Achievement Certificate">
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">TEKNOFEST ACHIEVEMENT CERTIFICATE</h5>
+                            <p class="project-desc">
+                                <strong>Organization:</strong> TEKNOFEST<br>
+                                <strong>ID:</strong> 31079524028045
+                            </p>
+                            <a href="https://drdogrulama.sanayi.gov.tr/tr/verify/31079524028045/" class="btn-project" target="_blank">
+                                Verify <i class="fa-solid fa-check-circle ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insider QA Bootcamp -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card mac-card-style">
+                        <div class="certificate-img-container">
+                            <img src="assests/img/Insider-QA.png" alt="Insider QA Bootcamp">
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Insider & Testinium QA Bootcamp</h5>
+                            <p class="project-desc">
+                                <strong>Date:</strong> Mar 2025<br>
+                                <strong>Skills:</strong> Manual Testing, Automation, Bug Detection, STLC, Postman
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SistersLab QA Bootcamp -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card mac-card-style">
+                        <div class="certificate-img-container">
+                            <img src="assests/img/SistersLab-QA.png" alt="SistersLab QA Bootcamp">
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">QA Bootcamp</h5>
+                            <p class="project-desc">
+                                <strong>Date:</strong> Oct 2024<br>
+                                <strong>Organization:</strong> SistersLab<br>
+                                <strong>Skills:</strong> Agile, Manual Testing, Automation
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OSD Automotive Summer Camp -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card mac-card-style">
+                        <div class="certificate-img-container">
+                            <img src="assests/img/OSD-Sertifika.png" alt="OSD Certificate">
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">AUTOMOTIVE SUMMER CAMP</h5>
+                            <p class="project-desc">
+                                <strong>Date:</strong> Jul 2024<br>
+                                <strong>Organization:</strong> OSD - Automotive Industry Association<br>
+                                <strong>ID:</strong> OSD38F8224E
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rmrkblty Participant Certificate -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card mac-card-style">
+                        <div class="certificate-img-container">
+                            <img src="assests/img/Rmrkblty.png" alt="Participant Certificate">
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">PARTICIPANT CERTIFICATE</h5>
+                            <p class="project-desc">
+                                <strong>Date:</strong> Jul 2024<br>
+                                <strong>Organization:</strong> Rmrkblty
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java Backend Development -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card mac-card-style">
+                        <div class="certificate-img-container">
+                            <img src="assests/img/Sisterslab-Java.png" alt="Java Backend Certificate">
+                        </div>
+                        <div class="project-body">
+                            <h5 class="project-title">Backend Development with Java</h5>
+                            <p class="project-desc">
+                                <strong>Date:</strong> Mar 2024<br>
+                                <strong>Organization:</strong> SistersLab<br>
+                                <strong>Skills:</strong> Java, REST APIs, Spring, Git, OOP
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CERTIFICATES END -->
+<section id="awards" class="headline mt-0 pt-3 pb-5" style="background-color: #f8f9fa;">
+        <div class="container-fluid">
+            <h5 class="display-5 text-center css-h5">
+                <i class="fa-solid fa-trophy me-2"></i>HONORS & AWARDS
+            </h5>
+            <hr class="mt-0">
+            <div class="container">
+                <div class="row mt-4 justify-content-center">
+
+                    <div class="col-lg-10 mb-4">
+                        <div class="project-card mac-card-style d-flex align-items-center">
+                            <div class="award-icon me-4 d-none d-md-block">
+                                <i class="fa-solid fa-award fa-3x" style="color: #015e91;"></i>
+                            </div>
+                            <div class="project-body w-100">
+                                <h5 class="project-title" style="color: #015e91; font-weight: 700;">
+                                    TÜBİTAK 2209-A Project Acceptance – BebeFon Project (2024)
+                                </h5>
+                                <p class="project-desc mb-0">
+                                    Accepted and supported by TÜBİTAK within the scope of University Students Research Projects Support Program (2209-A).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 mb-4">
+                        <div class="project-card mac-card-style d-flex align-items-center">
+                            <div class="award-icon me-4 d-none d-md-block">
+                                <i class="fa-solid fa-medal fa-3x" style="color: #f39c12;"></i>
+                            </div>
+                            <div class="project-body w-100">
+                                <h5 class="project-title" style="color: #015e91; font-weight: 700;">
+                                    Union of Anatolian Universities 4th R&D Project Market – 2nd Place (2025)
+                                </h5>
+                                <p class="project-desc mb-0">
+                                    Achieved 2nd place among 493 projects with the BebeFon Project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 mb-4">
+                        <div class="project-card mac-card-style d-flex align-items-center">
+                            <div class="award-icon me-4 d-none d-md-block">
+                                <i class="fa-solid fa-star fa-3x" style="color: #e74c3c;"></i>
+                            </div>
+                            <div class="project-body w-100">
+                                <h5 class="project-title" style="color: #015e91; font-weight: 700;">
+                                    TEKNOFEST 2025 ISTANBUL – Finalist
+                                </h5>
+                                <p class="project-desc mb-0">
+                                    Selected as a finalist in the "Technologies for Barrier-Free Living" category with the BebeFon Project and ranked 7th in Turkey.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- CONTACT START -->
+<section id="contact" class="headline mt-auto pt-3 pb-5" style="background-color: #e6e6e6;">
+    <div class="container-fluid pt-2 pb-4">
+        <h5 class="display-5 text-center css-h5">
+            <i class="fa-solid fa-at me-2"></i>CONTACT
+        </h5>
+        <hr class="mt-0">
+
+        <div class="container contact-div">
+            <div class="contact-container mt-1">
+                <div class="row">
+                    <div class="contact-header">
+                        <div class="contact-header-left">
+                            <div class="contact-header-button close"></div>
+                            <div class="contact-header-button maximize"></div>
+                            <div class="contact-header-button minimize"></div>
+                        </div>
+                        <div class="contact-header-mid">Contact</div>
+                        <div class="contact-header-rigth">
+                            <div class="contact-header-dot"></div>
+                            <div class="contact-header-dot small"></div>
+                            <div class="contact-header-dot"></div>
+                        </div>                                
+                    </div>
+
+                    <div class="contact-body pb-4">
+                        <div class="row">
+                            <!-- Left Info -->
+                            <div class="col-lg-5">
+                                <div class="contact-body-left-item">
+                                    <div class="contact-body-left-item-text">
+                                        <span>CONTACT</span>
+                                        <span>ME</span>
+                                    </div>
+                                    <div class="contact-body-left-item-img d-flex justify-content-center">
+                                        <img src="assests/img/mail2.png" draggable="false" alt="Send Mail">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Form -->
+                            <div class="col-lg-7">
+                                <div class="container contact-body-right-item mt-4">
+                                    <form class="needs-validation" id="form-contact" action="https://formspree.io/f/xovgjpqv" method="POST" novalidate>
+                                        
+                                        <!-- Name -->
+                                        <div class="form-floating mb-4">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required maxlength="30" aria-describedby="err-name">
+                                            <label for="name">
+                                                <i class="fa-solid fa-user me-2"></i>Your Name 
+                                                <span class="text-danger" aria-hidden="true">*</span>
+                                            </label>
+                                            <div class="invalid-feedback ps-1 fw-bold" id="err-name"></div>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="form-floating mb-4">
+                                            <input type="text" class="form-control" id="mail" name="email" placeholder="Your Email" required maxlength="30" aria-describedby="err-mail">
+                                            <label for="mail">
+                                                <i class="fa-solid fa-envelope me-2"></i>Your Email 
+                                                <span class="text-danger" aria-hidden="true">*</span>
+                                                <span class="visually-hidden"> required</span>
+                                            </label>
+                                            <div class="invalid-feedback ps-1 fw-bold" id="err-mail"></div>
+                                        </div>
+
+                                        <!-- Phone Number -->
+                                        <div class="form-floating mb-4">
+                                            <input type="text" class="form-control" id="phone-number" name="phone" placeholder="Your Phone Number" required maxlength="20" aria-describedby="err-number">
+                                            <label for="phone-number">
+                                                <i class="fa-solid fa-square-phone me-2"></i>Phone Number 
+                                                <span class="text-danger" aria-hidden="true">*</span>
+                                                <span class="visually-hidden"> required</span>
+                                            </label>
+                                            <div class="invalid-feedback ps-1 fw-bold" id="err-number"></div>
+                                        </div>
+
+                                        <!-- Message -->
+                                        <div class="form-floating" id="textarea-div">
+                                            <textarea type="text" class="form-control" id="message" name="message" placeholder="Your Message" required maxlength="300" aria-describedby="err-message"></textarea>
+                                            <label for="message">
+                                                <i class="fa-solid fa-comments me-2"></i>Your Message 
+                                                <span class="text-danger" aria-hidden="true">*</span>
+                                                <span class="visually-hidden"> required</span>
+                                            </label>
+                                            <div class="invalid-feedback ps-1 fw-bold" id="err-message"></div>
+                                            <div class="text-end text-dark mt-3 mb-4">
+                                                <span id="message-count">0</span> / 300
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Button -->
+                                        <div class="contact-submit-button mt-3">
+                                            <button type="submit" class="btn" id="btn-contact">
+                                                SEND <i class="fa-solid fa-paper-plane ms-2 fa-lg"></i>
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CONTACT END -->
+
+<!-- FOOTER (Modern Structure) -->     
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <!-- LEFT: Slogan -->
+            <div class="col-lg-4 footer-col footer-left">
+                <h1 class="footer-title">
+                    <span class="highlight">DO IT</span>
+                    <span>TODAY,</span>
+                    <span>OR REGRET IT</span>
+                    <span class="highlight">TOMORROW.</span>
+                </h1>
+            </div>
+
+            <!-- CENTER: Contact -->
+            <div class="col-lg-4 footer-col footer-center">
+                <div class="footer-heading">CONTACT</div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>Istanbul, Turkey</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p><a href="mailto:aygun8007@gmail.com">aygun8007@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>+90 500 000 0000</p>
+                </div>
+            </div>
+
+            <!-- RIGHT: Quick Links -->
+            <div class="col-lg-4 footer-col footer-right">
+                <div class="footer-heading">QUICK LINKS</div>
+                <ul class="footer-links">
+                    <li><a href="#main-body"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Me</a></li>
+                    <li><a href="#education"><i class="fa-solid fa-chevron-right"></i> Education</a></li>
+                    <li><a href="#skills"><i class="fa-solid fa-chevron-right"></i> Skills</a></li>
+                    <li><a href="#projects"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
+                    <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- BOTTOM LINE & SOCIAL MEDIA -->
+        <div class="footer-bottom">
+            <div class="copyright-text">
+                &copy; 2025 CODE & DESIGN BY AHMET AYGÜN
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/ahmet.aygunnn/" class="social-btn" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://twitter.com/AhmetAygunn34" class="social-btn" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/ahmet-ayg%C3%BCn-7818aa237/" class="social-btn" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/Ahmetaygun" class="social-btn" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://medium.com/@aygun8007" class="social-btn" target="_blank"><i class="fa-brands fa-medium"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Bootstrap js  -->
+    <script src="assests/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- FontAwesome js -->
+    <script src="https://kit.fontawesome.com/35d310d416.js" crossorigin="anonymous"></script>
+    <!--  Jquery js -->
+    <script src="assests/js/jquery-3.6.0.min.js"></script>
+    <!-- Custom js -->
+    <script src="assests/js/custom/extra.js"></script>
+    <script src="assests/js/custom/scrollReveal.js"></script>
+</body>
+<script>
+    // Navbar Scroll Efekti
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNavbar');
+        // Sayfa 50px'den fazla aşağı kaydırılırsa
+        if (window.scrollY > 50) { 
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
+</html>

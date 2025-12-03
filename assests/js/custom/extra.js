@@ -4,8 +4,15 @@ $(document).ready(function(){
         $(".pre-loader").addClass("loader-collapse");
     },3000);
     
-     var typed=new Typed('#typed',{
-        strings:["Software Engineer","Java Developer","Back-End Developer","Front-End Developer"],
+    // BURASI GÜNCELLENDİ: Python Developer eklendi
+    var typed=new Typed('#typed',{
+        strings:[
+            "Software Engineer",
+            "Mobil Developer",
+            "AI Engineer", 
+            "Back-End Developer",
+            "Front-End Developer"
+        ],
         stringsElement:null,
         typeSpeed:30,
         startDelay:1200,
@@ -14,6 +21,7 @@ $(document).ready(function(){
         loop:true,
         loopCount:Infinity
     });
+
     $(window).on("scroll",function(){
         if(window.scrollY > $("#header-div").height()-80){
             $("#scroll-up").removeClass("d-none");
@@ -24,14 +32,17 @@ $(document).ready(function(){
         }
     });
 });
+
 //Scroll to up
 const btnScroll=document.querySelector("#scroll-up");
-btnScroll.addEventListener("click",function(){
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
+if(btnScroll){
+    btnScroll.addEventListener("click",function(){
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
     });
-});
+}
 
 //scroll to navbar
 window.addEventListener("DOMContentLoaded",event=>{
@@ -56,75 +67,86 @@ window.addEventListener("DOMContentLoaded",event=>{
 });
 
 
-//offcanvas bismiss
+//offcanvas dismiss
 var btnoffCanvas=document.querySelectorAll(".btn-close-canvas");
 for(let i=0;i<btnoffCanvas.length;i++){
     btnoffCanvas[i].addEventListener("click",function () {
-        document.querySelector('[data-bs-dismiss="offcanvas"]').click();
+        var dismissBtn = document.querySelector('[data-bs-dismiss="offcanvas"]');
+        if(dismissBtn) dismissBtn.click();
     });
 }
+
 //Form Validate
 (function(){
     'use strict'
     var formValidation=document.querySelector(".needs-validation");
+    // Form sayfada yoksa hata vermemesi için kontrol
+    if(!formValidation) return;
+
     var name = document.querySelector("#name");
     var mail = document.querySelector("#mail");
     var phoneNumber = document.querySelector("#phone-number");
     var message = document.querySelector("#message");
     var btnContact=document.querySelector("#btn-contact");
-    if(message.value.length===0){
+    
+    // Başlangıç kontrolü
+    if(message && btnContact && message.value.length===0){
         btnContact.disabled=true;
     }
-    message.addEventListener("keyup",function(){
-        document.getElementById("message-count").textContent=message.value.length;
-        if(message.value.length===0){
-            btnContact.disabled=true;
-        }
-        else if(message.value.length>10){
-            btnContact.disabled=false;
-        }
-    });
 
-    name.addEventListener("blur",nameCheck);
-    mail.addEventListener("blur",mailCheck);
-    phoneNumber.addEventListener("blur",numberCheck);
-    message.addEventListener("blur",messageCheck);
+    if(message){
+        message.addEventListener("keyup",function(){
+            var msgCount = document.getElementById("message-count");
+            if(msgCount) msgCount.textContent=message.value.length;
+            
+            if(message.value.length===0){
+                btnContact.disabled=true;
+            }
+            else if(message.value.length>10){
+                btnContact.disabled=false;
+            }
+        });
+        message.addEventListener("blur",messageCheck);
+    }
+
+    if(name) name.addEventListener("blur",nameCheck);
+    if(mail) mail.addEventListener("blur",mailCheck);
+    if(phoneNumber) phoneNumber.addEventListener("blur",numberCheck);
     
     const spacePattern=/^\S*$/;
-    const numericPattern =/^([^0-9]*)$/;          //Rakam içermeyenleri getir
+    const numericPattern =/^([^0-9]*)$/;         
     const mailPattern=/^([a-zA-Z0-9_\-?\.?]){3,}@([a-zA-Z]){3,}\.([a-zA-Z]){2,5}$/;
     const onlyNumberPattern=/^[0-9]*$/;
+    
     var errName=document.querySelector("#err-name");
     var errNumber=document.querySelector("#err-number");
     var errMail=document.querySelector("#err-mail");
     var errMessage=document.querySelector("#err-message");
 
     function nameCheck(){
-        var errName=document.querySelector("#err-name");
+        if(!name) return false;
         if(name.value.length===0){
             name.classList.remove("is-valid");
             name.classList.add("is-invalid");
-            errName.textContent="İsim Alanı Boş Bırakılamaz";
+            if(errName) errName.textContent="İsim Alanı Boş Bırakılamaz";
             return false;
         }
         else if(name.value.length < 3){
             name.classList.remove("is-valid");
             name.classList.add("is-invalid");
-            errName.textContent="İsim alanı 3 karakterden az olamaz";
-            alert(name.value);
+            if(errName) errName.textContent="İsim alanı 3 karakterden az olamaz";
             return false;
         }
         else if(name.value.length > 30){
             name.classList.remove("is-valid");
             name.classList.add("is-invalid");
-            errName.textContent="İsim alanı 30 karakterden fazla olamaz";
+            if(errName) errName.textContent="İsim alanı 30 karakterden fazla olamaz";
             return false;
-            
         }
         else if(!numericPattern.test(name.value)){
             name.classList.remove("is-valid");
             name.classList.add("is-invalid");
-            errName.textContent="İsminizde sayı olamaz";
+            if(errName) errName.textContent="İsminizde sayı olamaz";
             return false;
         }
         else{
@@ -133,29 +155,25 @@ for(let i=0;i<btnoffCanvas.length;i++){
             return true;
         }
     }
+
     function mailCheck(){
+        if(!mail) return false;
         if(mail.value.length===0){
             mail.classList.remove("is-valid");
             mail.classList.add("is-invalid");
-            errMail.textContent="E-posta Alanı Boş Bırakılamaz";
+            if(errMail) errMail.textContent="E-posta Alanı Boş Bırakılamaz";
             return false;
         }
         else if(!mailPattern.test(mail.value)|| mail.value.length < 3){
             mail.classList.remove("is-valid");
             mail.classList.add("is-invalid");
-            errMail.textContent="Geçerli Bir E-posta Adresi Giriniz";
+            if(errMail) errMail.textContent="Geçerli Bir E-posta Adresi Giriniz";
             return false;
         }
         else if(!spacePattern.test(mail.value)){
             mail.classList.remove("is-valid");
             mail.classList.add("is-invalid");
-            errMail.textContent="E-posta Adresinizde Boşluk Bırakmayınız";
-            return false;
-        }
-        else if(mail.value.length > 40){
-            mail.classList.remove("is-valid");
-            mail.classList.add("is-invalid");
-            errMail.textContent="E-posta Adresinizde Boşluk Bırakmayınız";
+            if(errMail) errMail.textContent="E-posta Adresinizde Boşluk Bırakmayınız";
             return false;
         }
         else{
@@ -164,29 +182,31 @@ for(let i=0;i<btnoffCanvas.length;i++){
             return true;
         }
     }
+
     function numberCheck(){
+        if(!phoneNumber) return false;
         if(phoneNumber.value.length===0){
             phoneNumber.classList.remove("is-valid");
             phoneNumber.classList.add("is-invalid");
-            errNumber.textContent="İsim Alanı Boş Bırakılamaz";
+            if(errNumber) errNumber.textContent="Telefon Alanı Boş Bırakılamaz";
             return false;
         }
         else if(!spacePattern.test(phoneNumber.value)){
             phoneNumber.classList.remove("is-valid");
             phoneNumber.classList.add("is-invalid");
-            errNumber.textContent="Telefon Numaranızda Boşluk Bırakmayınız";
+            if(errNumber) errNumber.textContent="Telefon Numaranızda Boşluk Bırakmayınız";
             return false;
         }
         else if(!onlyNumberPattern.test(phoneNumber.value)){
             phoneNumber.classList.remove("is-valid");
             phoneNumber.classList.add("is-invalid");
-            errNumber.textContent="Telefon Numaranız sadece Rakamlardan Oluşmalıdır";
+            if(errNumber) errNumber.textContent="Sadece Rakam Giriniz";
             return false;
         }
-        else if(phoneNumber.value.length < 3|| phoneNumber.value.length>20){
+        else if(phoneNumber.value.length < 3 || phoneNumber.value.length>20){
             phoneNumber.classList.remove("is-valid");
             phoneNumber.classList.add("is-invalid");
-            errNumber.textContent="Geçerli Bir Telefon Numarası Giriniz";
+            if(errNumber) errNumber.textContent="Geçerli Bir Numara Giriniz";
             return false;
         }
         else{
@@ -195,23 +215,25 @@ for(let i=0;i<btnoffCanvas.length;i++){
             return true;
         }
     }
+
     function messageCheck(){
+        if(!message) return false;
         if(message.value.length===0){
             message.classList.remove("is-valid");
             message.classList.add("is-invalid");
-            errMessage.textContent="Mesaj Alanı Boş Bırakılamaz";
+            if(errMessage) errMessage.textContent="Mesaj Alanı Boş Bırakılamaz";
             return false;
         }
         else if(message.value.length<10){
             message.classList.remove("is-valid");
             message.classList.add("is-invalid");
-            errMessage.textContent="Mesajınız 10 Karakterden Az Olamaz";
+            if(errMessage) errMessage.textContent="Mesajınız 10 Karakterden Az Olamaz";
             return false;
         }
         else if(message.value.length>300){
             message.classList.remove("is-valid");
             message.classList.add("is-invalid");
-            errMessage.textContent="Mesajınız 300 Karakterden Fazla Olamaz";
+            if(errMessage) errMessage.textContent="Mesajınız 300 Karakterden Fazla Olamaz";
             return false;
         }
         else{
@@ -221,14 +243,13 @@ for(let i=0;i<btnoffCanvas.length;i++){
         }
     }
     
+    // GÖNDERME İŞLEMİ (Eğer her şey doğruysa Formspree'ye gönderir)
     formValidation.addEventListener("submit",function(e){
+        // Doğrulama kontrolü
         if(!formValidation.checkValidity() || !nameCheck() || !mailCheck() || !numberCheck() || !messageCheck()){
-            e.preventDefault();     //Submit is stop
+            e.preventDefault(); // Hata varsa durdur
             e.stopPropagation();
         }
+        // Hata yoksa formun kendi 'action' özelliği çalışır ve mail gider.
     },false);
 })();
-
-
-
-

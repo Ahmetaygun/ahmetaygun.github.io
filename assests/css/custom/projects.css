@@ -1,0 +1,140 @@
+/* assets/css/custom/projects.css */
+
+/* Genel Bölüm Ayarı */
+#projects {
+    background-color: #e6e6e6; /* İletişim bölümüyle aynı gri ton */
+    position: relative;
+}
+
+/* KART YAPISI (Pencere Görünümü) */
+.project-card {
+    background: #fff;
+    border: none;
+    border-radius: 10px; /* Pencere köşeleri */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Yumuşak gölge */
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+}
+
+/* Hover Efekti: Kart havaya kalksın */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* PENCERE ÜST BARI (Header) */
+.project-icon-div {
+    background-color: #e2e2e2; /* Mac pencere grisi */
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Noktaları yerleştirmek için gerekli */
+    border-bottom: 1px solid #d1d1d1;
+}
+
+/* MAC NOKTALARI (Kırmızı, Sarı, Yeşil) - CSS ile çiziyoruz */
+.project-icon-div::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f56; /* Kırmızı Nokta */
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f; /* Sarı ve Yeşil Noktalar */
+}
+
+/* İkon Ayarı */
+.project-icon-div i {
+    font-size: 2.5rem;
+    background: -webkit-linear-gradient(#333, #555); /* İkon rengi koyu gri geçişli */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* İstersen ikonları mavi yapmak için üstteki 3 satırı silip: color: #015e91; yazabilirsin */
+}
+
+/* KART GÖVDESİ */
+.project-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9; /* Hafif kırık beyaz iç zemin */
+}
+
+/* Proje Başlığı */
+.project-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+/* Açıklama Metni */
+.project-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+/* Teknoloji Rozetleri */
+.tech-stack {
+    margin-bottom: 20px;
+}
+
+.tech-badge {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 3px 3px 3px 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 6px; /* Daha köşeli modern yapı */
+    background-color: #e2e2e2;
+    color: #444;
+    transition: all 0.2s;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.tech-badge:hover {
+    background-color: #015e91;
+    color: #fff;
+    border-color: #015e91;
+}
+
+/* BUTON (İletişim formuyla aynı stil) */
+.btn-project {
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    background-color: #333; /* Koyu buton */
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-project:hover {
+    background-color: #000;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}

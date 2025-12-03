@@ -1,395 +1,179 @@
-/*skills start*/
-.skill-container{
+/* assets/css/custom/skills.css */
+
+/* 1. BÖLÜM ARKA PLANI */
+#skills {
+    background-color: #e6e6e6 !important; /* Arka planı kesin olarak gri yap */
+    padding-bottom: 3rem;
+}
+
+/* 2. ARADAKİ GRİ KUTUYU YOK ETME */
+/* HTML'de style="..." ile verilen gri rengi ezmek için bunu ekliyoruz */
+#skills .container-fluid {
+    background-color: transparent !important; /* O gri kutuyu şeffaf yap */
+    box-shadow: none !important; /* Varsa gölgesini kaldır */
+}
+
+.skill-container {
     position: relative;
 }
-.skills-icon{
-    font-weight:900;
-    font-size: 1.3rem;
-}
-#skills-div{
-    background-color: #dfdfdf;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+/* 3. YETENEK KARTI (Pencere Görünümü) */
+#skills-div {
+    background-color: #ffffff !important; /* Kartın BEYAZ olmasını zorla */
     border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    padding: 25px 20px 20px 20px !important;
+    border: none !important;
     transform-style: preserve-3d;
     position: relative;
-    transition: transform .75s cubic-bezier(0.4,0.03,0.5,0.9), box-shadow .75s ease-in-out;
-    -webkit-transition:transform 0.5s cubic-bezier(0.4,0.03,0.5,0.9), box-shadow 0.5s ease-in-out ;
-    -moz-transition: transform 0.5s cubic-bezier(0.4,0.03,0.5,0.9), box-shadow 0.5s ease-in-out;
-    -ms-transition:transform 0.5s cubic-bezier(0.4,0.03,0.5,0.9), box-shadow 0.5s ease-in-out;
-    -o-transition: transform 0.5s cubic-bezier(0.4,0.03,0.5,0.9), box-shadow 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 25px;
+    overflow: hidden;
 }
-#skills-div:hover{
-    /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-    transform: scale(1.33);
+
+/* Mac Noktaları (Kırmızı, Sarı, Yeşil) */
+#skills-div::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f56;
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+    z-index: 5;
 }
-#skills-div .progressbar-title{
-    color:rgb(85, 85, 85);  /* #fff */
+
+/* Hover Efekti */
+#skills-div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
 }
-#skills-div .progressbar-title h3{
-    display: inline-block;
-    font-size: 1.4rem;
+
+/* BAŞLIK VE YAZILAR */
+#skills-div .progressbar-title {
+    color: #555;
+    margin-top: 15px; /* Noktalardan uzaklaşsın */
+}
+
+#skills-div .progressbar-title h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
     font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
 }
-#skills-div .progressbar-title .language-title{
+
+/* İkon Ayarı */
+#skills-div .progressbar-title h3 i, 
+#skills-div .progressbar-title h3 img {
+    margin-right: 10px;
+}
+
+/* Yüzde Rozeti */
+#skills-div .percent-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #015e91;
+    font-size: 0.85rem;
+    background: #e3f2fd;
+    padding: 4px 10px;
+    border-radius: 15px;
+}
+
+#skills-div .progressbar-title .language-title {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
-#skills-div .progressbar-title .language-title span{
-    font-weight: 700;
-}
-#skills-div .progressbar-title .percent{
-    position: absolute;
-    right: 5px;
-}
-#skills-div .bar-container{
-    background: #555;
+
+/* İLERLEME ÇUBUĞU */
+#skills-div .bar-container {
+    background: #e9ecef !important; /* Barın arka planını açık gri yap */
     position: relative;
     width: 100%;
-    height: .8rem;
+    height: 0.6rem;
     margin-top: 5px;
     display: block;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
+    overflow: hidden;
 }
-#skills-div .bar-container .progressbar{
+
+#skills-div .bar-container .progressbar {
     position: absolute;
-    width: 0%;
     height: 100%;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-animation-duration: 2s;
+    border-radius: 10px;
     animation-duration: 2s;
-    -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
-    -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
 
-#skills-div .bar-container #progress-c-sharp{
-    -webkit-animation-name: progress-c-sharp;
-    animation-name: progress-c-sharp;
-    -webkit-animation-delay: 0.7s;
-    animation-delay: 0.7s;
-}
-#skills-div .bar-container #progress-php {
-    -webkit-animation-name: progress-php;
-    animation-name: progress-php;
-    -webkit-animation-delay: 2.8s;
-    animation-delay: 2.8s;
-  }
-#skills-div .bar-container #progress-mysql {
-    -webkit-animation-name: progress-mysql;
-    animation-name: progress-mysql;
-    -webkit-animation-delay: 1.4s;
-    animation-delay: 1.4s;
-  }
-  #skills-div .bar-container #progress-html {
-    -webkit-animation-name: progress-html;
-    animation-name: progress-html;
-    -webkit-animation-delay: 2.1s;
-    animation-delay: 2.1s;
-  }
-  #skills-div .bar-container #progress-css {
-    -webkit-animation-name: progress-css;
-    animation-name: progress-css;
-    -webkit-animation-delay: 2.1s;
-    animation-delay: 2.1s;
-  }
-  
-  #skills-div .bar-container #progress-angular {
-    -webkit-animation-name: progress-angular;
-    animation-name: progress-angular;
-    -webkit-animation-delay: 3.5s;
-    animation-delay: 3.5s;
-  }
-  #skills-div .bar-container #progress-bootstrap {
-    -webkit-animation-name: progress-bootstrap;
-    animation-name: progress-bootstrap;
-    -webkit-animation-delay: 2.1s;
-    animation-delay: 2.1s;
-  }
-  #skills-div .bar-container #progress-jquery {
-    -webkit-animation-name: progress-jquery;
-    animation-name: progress-jquery;
-    -webkit-animation-delay: 2.1s;
-    animation-delay: 2.1s;
-  }
-  #skills-div .bar-container #progress-asp {
-    -webkit-animation-name: progress-asp;
-    animation-name: progress-asp;
-    -webkit-animation-delay: 2.1s;
-    animation-delay: 2.1s;
-  }  
-  #skills-div .bar-container #progress-js {
-    -webkit-animation-name: progress-js;
-    animation-name: progress-js;
-    -webkit-animation-delay: 2.1s;
-    animation-delay: 2.1s;
-  }
-  .progressred {
-    background-color: #c0392b;
-  }
-  
-  .progressblue {
-    background-color: #1199ff;
-  }
-  
-  .progresspurple {
-    background-color: #9b59b6;
-  }
-  
-  .progressorange {
-    background-color: #ffa500;
-  }
-  
-  .progressgreen {
-    background-color: #27ae60;
-  }
+/* Animasyon Tanımları */
+#skills-div .bar-container #progress-c-sharp { animation-name: progress-c-sharp; animation-delay: 0.7s; }
+#skills-div .bar-container #progress-php { animation-name: progress-php; animation-delay: 2.8s; }
+#skills-div .bar-container #progress-mysql { animation-name: progress-mysql; animation-delay: 1.4s; }
+#skills-div .bar-container #progress-html { animation-name: progress-html; animation-delay: 2.1s; }
+#skills-div .bar-container #progress-css { animation-name: progress-css; animation-delay: 2.1s; }
+#skills-div .bar-container #progress-angular { animation-name: progress-angular; animation-delay: 3.5s; }
+#skills-div .bar-container #progress-bootstrap { animation-name: progress-bootstrap; animation-delay: 2.1s; }
+#skills-div .bar-container #progress-jquery { animation-name: progress-jquery; animation-delay: 2.1s; }
+#skills-div .bar-container #progress-asp { animation-name: progress-asp; animation-delay: 2.1s; }
+#skills-div .bar-container #progress-js { animation-name: progress-js; animation-delay: 2.1s; }
+#skills-div .bar-container #progress-python { animation-name: progress-python; animation-delay: 0.5s; }
+#skills-div .bar-container #progress-flutter { animation-name: progress-flutter; animation-delay: 0.5s; }
+#skills-div .bar-container #progress-react { animation-name: progress-react; animation-delay: 2.1s; }
+#skills-div .bar-container #progress-postgresql { animation-name: progress-postgresql; animation-delay: 1.5s; }
 
-  @-webkit-keyframes progress-html {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 98%;
-    }
-  }
-  @-moz-keyframes progress-html {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 98%;
-    }
-  }
-  @keyframes progress-html {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 98%;
-    }
-  }
+/* Renk Sınıfları */
+.progressred { background-color: #c0392b !important; }
+.progressblue { background-color: #1199ff !important; }
+.progresspurple { background-color: #9b59b6 !important; }
+.progressorange { background-color: #ffa500 !important; }
+.progressgreen { background-color: #27ae60 !important; }
 
-  @-webkit-keyframes progress-css {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 70%;
-    }
-  }
-  @-moz-keyframes progress-css {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 70%;
-    }
-  }
-  @keyframes progress-css {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 80%;
-    }
-  }
-  @-webkit-keyframes progress-angular {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 30%;
-    }
-  }
-  @-moz-keyframes progress-angular {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 30%;
-    }
-  }
-  @keyframes progress-angular {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 20%;
-    }
-  }
-  @-webkit-keyframes progress-js {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 85%;
-    }
-  }
-  @-moz-keyframes progress-js {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 85%;
-    }
-  }
-  @keyframes progress-js {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 75%;
-    }
-  }
-  @-webkit-keyframes progress-php {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 90%;
-    }
-  }
-  @-moz-keyframes progress-php {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 90%;
-    }
-  }
-  @keyframes progress-php {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 65%;
-    }
-  }
-  @-webkit-keyframes progress-c-sharp {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 75%;
-    }
-  }
-  @-moz-keyframes progress-c-sharp {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 75%;
-    }
-  }
-  @keyframes progress-c-sharp {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 55%;
-    }
-  }
-  @-webkit-keyframes progress-mysql {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 90%;
-    }
-  }
-  @-moz-keyframes progress-mysql {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 90%;
-    }
-  }
-  @keyframes progress-mysql {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 60%;
-    }
-  }
-  @-webkit-keyframes progress-asp {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 30%;
-    }
-  }
-  @-moz-keyframes progress-asp {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 30%;
-    }
-  }
-  @keyframes progress-asp {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 80%;
-    }
-  }
-  @-webkit-keyframes progress-bootstrap {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 99%;
-    }
-  }
-  @-moz-keyframes progress-bootstrap {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 99%;
-    }
-  }
-  @keyframes progress-bootstrap {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 99%;
-    }
-  }
-  @-webkit-keyframes progress-jquery {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 85%;
-    }
-  }
-  @-moz-keyframes progress-jquery {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 85%;
-    }
-  }
-  @keyframes progress-jquery {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 25%;
-    }
-  }
-/*skills div end*/
+/* Logoların Renkleri */
+.fa-python { color: #3776AB; }
+.fa-flutter { color: #02569B; }
+.fa-react { color: #61DAFB; }
+.fa-js-square { color: #F7DF1E; background-color: black; }
+.fa-html5 { color: #E34F26; }
+.fa-css3-alt, .fa-postgresql { color: #1572B6; }
+.fa-bootstrap { color: #7952B3; }
+.fa-php { color: #777BB4; }
+.fa-java { color: #f89820; }
+.fa-database { color: #00758F; }
+.skills-icon { color: #9b4993; }
+
+/* Keyframes - Aynı kalabilir */
+@-webkit-keyframes progress-python { 0% { width: 0%; } 100% { width: 85%; } }
+@keyframes progress-python { 0% { width: 0%; } 100% { width: 85%; } }
+@-webkit-keyframes progress-flutter { 0% { width: 0%; } 100% { width: 90%; } }
+@keyframes progress-flutter { 0% { width: 0%; } 100% { width: 90%; } }
+@-webkit-keyframes progress-html { 0% { width: 0%; } 100% { width: 98%; } }
+@keyframes progress-html { 0% { width: 0%; } 100% { width: 98%; } }
+@-webkit-keyframes progress-css { 0% { width: 0%; } 100% { width: 70%; } }
+@keyframes progress-css { 0% { width: 0%; } 100% { width: 80%; } }
+@-webkit-keyframes progress-angular { 0% { width: 0%; } 100% { width: 30%; } }
+@keyframes progress-angular { 0% { width: 0%; } 100% { width: 20%; } }
+@-webkit-keyframes progress-js { 0% { width: 0%; } 100% { width: 85%; } }
+@keyframes progress-js { 0% { width: 0%; } 100% { width: 75%; } }
+@-webkit-keyframes progress-php { 0% { width: 0%; } 100% { width: 90%; } }
+@keyframes progress-php { 0% { width: 0%; } 100% { width: 65%; } }
+@-webkit-keyframes progress-c-sharp { 0% { width: 0%; } 100% { width: 75%; } }
+@keyframes progress-c-sharp { 0% { width: 0%; } 100% { width: 55%; } }
+@-webkit-keyframes progress-mysql { 0% { width: 0%; } 100% { width: 90%; } }
+@keyframes progress-mysql { 0% { width: 0%; } 100% { width: 80%; } }
+@-webkit-keyframes progress-asp { 0% { width: 0%; } 100% { width: 30%; } }
+@keyframes progress-asp { 0% { width: 0%; } 100% { width: 80%; } }
+@-webkit-keyframes progress-bootstrap { 0% { width: 0%; } 100% { width: 99%; } }
+@keyframes progress-bootstrap { 0% { width: 0%; } 100% { width: 99%; } }
+@-webkit-keyframes progress-jquery { 0% { width: 0%; } 100% { width: 85%; } }
+@keyframes progress-jquery { 0% { width: 0%; } 100% { width: 25%; } }
+@-webkit-keyframes progress-postgresql { 0% { width: 0%; } 100% { width: 80%; } }
+@keyframes progress-postgresql { 0% { width: 0%; } 100% { width: 80%; } }
+@-webkit-keyframes progress-react { 0% { width: 0%; } 100% { width: 80%; } }
+@keyframes progress-react { 0% { width: 0%; } 100% { width: 80%; } }

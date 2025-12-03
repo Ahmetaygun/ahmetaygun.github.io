@@ -1,133 +1,226 @@
+/* --- FOOTER GENEL AYARLAR --- */
+#footer {
+    background-color: #0f172a; /* Modern Dark Tema */
+    color: #cbd5e1;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
 
+/* --- SOL KISIM: SLOGAN (TAM ORTALI) --- */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikey ortalama */
+    align-items: center;     /* Yatay ortalama */
+    height: 100%;
+    text-align: center;      /* Metin hizalaması */
+}
 
- /*footer start*/
- #footer{
-    background: #1a1b26;
-    
-  }
-  /*footer-left------------------------------------*/
-  .footer-left,.footer-center,.footer-right{
-    display: inline-block;
-  }
-  .footer-left .footer-title{
-    font-size: 1.7rem;
-  }
-  .footer-left .footer-title span{
-    display: block;
-    color:rgb(124, 124, 124);
-  }
-  /*footer-center------------------------------------*/
-  .footer-center{
-    color:rgb(124, 124, 124);
-  }
-  .footer-center i{
-  background-color: #33383b;
-  color:#f0f0f0;
-  font-size: 1.45rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 2rem;
-  margin: 10px 8px 10px 15px;
-  vertical-align: middle;
-  }
-  .footer-center p{
-    display: inline-block;
-    color:#c2c2c2;
-    font-weight: normal;
-    font-size: 1.02rem;
-    line-height: 2;
-    vertical-align: middle;
+.footer-title {
+    font-size: 2rem;         /* Font büyütüldü */
+    font-weight: 800;
+    line-height: 1.2;
     margin: 0;
-  }
-  .footer-center p span{
+    letter-spacing: 1px;
+    text-align: center !important; /* Kesin ortalama */
+    width: 100%;
+    padding-top: 4rem;
+    padding-right: 1rem;
+}
+
+.footer-title .highlight {
+    color: #015e91; /* Mavi vurgu */
     display: block;
-    font-weight: normal;
-    font-size: 1rem;
-    line-height: 2;
-    font-family: 'Roboto', sans-serif;
-  }
-  .mail-link{
-    text-decoration: none;
-    color:#c2c2c2;
-  }
-  .mail-link:hover{
-    color:  lightseagreen !important; 
-    transition: all .4s ease;
-  }
-  /*footer-right------------------------------------*/
-  .footer-right ul li{
-    color:#c2c2c2;
-    font-weight: 300;
-    font-family: "Montserrat",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      /* font-family: "Roboto Slab",-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
-    
-  }
-  .footer-right ul li a{
-    color:#c2c2c2;
-    text-align: center;
-  }
-  .footer-right ul li a:hover{
+}
+
+/* --- BAŞLIKLAR (BÜYÜTÜLDÜ) --- */
+.footer-heading {
+    color: #fff;
+    font-size: 1.4rem;      /* Başlık boyutu büyütüldü */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+/* Başlık Altına Ufak Çizgi Efekti (Opsiyonel Şıklık) */
+.footer-heading::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #015e91;
+    margin-top: 5px;
+    border-radius: 2px;
+}
+
+/* --- ORTA KISIM: İLETİŞİM --- */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 1.05rem; /* Yazı biraz büyüdü */
+}
+
+.contact-item i {
     color: #015e91;
-    transition: color .2s ease-in-out;
-  }
-  .footer-right ul li a:hover i{
-    animation: revealText .5s forwards;
-    transition: all .3s ease-in-out;
-  }
-  .footer-right ul li a:hover i:first-child{
-    animation-delay: .125s;
-  }
-  .footer-right ul li a:hover i:last-child{
-    animation-delay: .275s;
-  }
-  @keyframes revealText {
-    from{
-        transform: translateX(-10px); /*Moves the element down by 20px.*/
-    }
-    to{
-        opacity: 1; /*Turn the opacity back on so that we can see the element in it's final animation state.*/
-        transform: none; /*Removes the 20px so that the text will be at the normal starting position at the end of the animation.*/
-    }
-  }
-  /*footer-bottom------------------------------------*/
-  .footer-bottom .footer-bottom-info{
-    font-size:1.1rem;
-    font-family: 'Koulen', cursive;
-    font-weight: 400;
-  }
-  .footer-bottom ul li{
-    /* font-size:1.5rem; */
-    background-color: #b6b6b6;
-    color:#4b4b4b;
-    width: 2rem;
-    border-radius:100%;
-    text-align: center;
-    line-height: 32px;
-    /* margin: 10px 8px 10px 15px; */
-    vertical-align: middle;
-    transition: all .2s ease-in-out;
-  
-  }
-  .footer-bottom ul li.instagram:hover
-  {
-    background-color:#dd2d7a;
+    font-size: 0.8rem;
+    margin-right: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover i {
+    background: #015e91;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.contact-item a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-item a:hover {
+    color: #fff;
+}
+
+/* --- SAĞ KISIM: LİNKLER --- */
+.footer-links {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a i {
+    font-size: 0.8rem;
+    margin-right: 10px;
+    color: #015e91;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+/* --- ALT KISIM & SOSYAL MEDYA İKONLARI --- */
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* İkonlar arası boşluk */
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;       /* İkon genişliği büyütüldü */
+    height: 45px;      /* İkon yüksekliği büyütüldü */
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1.3rem; /* İkon font boyutu büyütüldü */
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: #015e91;
+    color: #fff;
+    transform: translateY(-5px); /* Yukarı zıplama efekti */
+    box-shadow: 0 5px 15px rgba(1, 94, 145, 0.4);
+}
+
+/* --- MOBİL UYUMLULUK --- */
+/* --- MOBİL UYUMLULUK AYARLARI --- */
+@media (max-width: 991px) {
     
-  }
-  .footer-bottom ul li.twitter:hover
-  {
-    background-color:#00aced;
-    transform: scale(.98);
-  }
-  .footer-bottom ul li.linkedin:hover
-  {
-    background-color:#007bb6;
-    transform: scale(.98);
-  }
-  .footer-bottom ul li.github:hover
-  {
-    background-color:#800080;
-    transform: scale(.80);
-  }
-  
+    /* 1. SLOGAN (DO IT) DÜZENLEMESİ */
+    .footer-left {
+        padding-top: 0 !important;   /* Kapsayıcı boşluğunu sıfırla */
+        min-height: auto !important; /* Yüksekliği içeriğe göre ayarla */
+        margin-bottom: 40px;         /* Altına biraz boşluk bırak */
+    }
+
+    .footer-title {
+        padding-top: 0 !important;   /* Yazının üzerindeki 4rem'lik boşluğu sil */
+        padding-right: 0 !important; /* Sağ boşluğu sıfırla */
+        font-size: 1.8rem;           /* Mobilde fontu biraz küçült */
+    }
+
+    /* 2. İLETİŞİM KISMI (SOLA YAPIŞIK) */
+    .footer-center {
+        text-align: left !important;        /* Yazıları sola hizala */
+        align-items: flex-start !important; /* Flex yapısını sola hizala */
+        padding-left: 15px;                 /* Telefondan kenara çok yapışmasın */
+        margin-bottom: 30px;
+    }
+
+    /* İletişim Başlığının Altındaki Çizgi */
+    .footer-center .footer-heading::after {
+        margin: 5px 0 0 0 !important; /* Çizgiyi sola al */
+    }
+
+    /* İkonlar ve Yazılar */
+    .contact-item {
+        justify-content: flex-start !important; /* İçeriği sola daya */
+    }
+
+    /* 3. DİĞER KISIMLAR (SAĞ VE ALT) */
+    /* Hızlı Linkler ortalı kalsın (İstersen bunu da sola alabiliriz) */
+    .footer-right {
+        text-align: left !important;        /* Yazıları sola hizala */
+        align-items: flex-start !important;
+        margin-bottom: 10px;
+    }
+    
+    .footer-right .footer-heading::after {
+        margin: 5px auto 0 auto; /* Çizgiyi ortala */
+    }
+
+    /* Footer'ın en altı (Copyright vs) */
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1rem;
+    }
+}
