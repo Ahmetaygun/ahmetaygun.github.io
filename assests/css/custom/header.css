@@ -27,15 +27,14 @@ header.bgImage .bgImage-heading{
 }
 
   /* navbar start */
-  #mainNavbar {
+#mainNavbar {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #212529;
-    background-color: transparent;
+    background-color: transparent !important; 
     transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-    -webkit-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out ;
+    -webkit-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
     -moz-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
-    -ms-transition:padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+    -ms-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
     -o-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
 }
 
@@ -88,9 +87,9 @@ header.bgImage .bgImage-heading{
 }
 
 #mainNavbar.navbar-scroll{
-    background-color: #212529 !important;
+    background-color: transparent !important;
     height: 4rem;
-    opacity: .997;
+    opacity: 1;
     transition: background-color 0.8s ease-in-out;
 }
 

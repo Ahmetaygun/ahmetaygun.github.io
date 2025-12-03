@@ -352,12 +352,11 @@ header.bgImage .bgImage-heading {
 
 /* 1. Varsayılan Durum (Sayfanın en tepesi) */
 #mainNavbar{
-    background: transparent !important;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     transition: all 0.4s ease;
     box-shadow: none;
-
+background-color: transparent !important; 
     position: fixed;
     top: 0;
     width: 100%;
@@ -371,13 +370,41 @@ header.bgImage .bgImage-heading {
 
 /* Kaydırılınca efekt */
 #mainNavbar.scrolled {
-    background-color: rgba(26, 27, 38, 0.70) !important;
+    background-color: transparent !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* --- SCROLL OLUNCA YAZI RENGİNİ DEĞİŞTİRME --- */
+
+/* 1. Linklerin Rengini Koyu Yap (Scroll olduğunda) */
+#mainNavbar.navbar-scroll .nav-link,
+#mainNavbar.scrolled .nav-link {
+    color: #015e91 !important; /* Temana uygun koyu mavi */
+    font-weight: 600; /* Biraz daha kalın olsun ki rahat okunsun */
+}
+
+/* 2. Linklerin Üzerine Gelince (Hover) Rengi */
+#mainNavbar.navbar-scroll .nav-link:hover,
+#mainNavbar.scrolled .nav-link:hover {
+    color: #de3545 !important; /* Kırmızımsı hover rengi */
+}
+
+/* 3. Logo / İsim Rengini Koyu Yap */
+#mainNavbar.navbar-scroll .navbar-brand,
+#mainNavbar.scrolled .navbar-brand,
+#mainNavbar.navbar-scroll #logo,
+#mainNavbar.scrolled #logo {
+    color: #015e91 !important;
+}
+
+/* 4. (Opsiyonel) Eğer mobilde menü ikonu (Hamburger) görünmüyorsa */
+#mainNavbar.navbar-scroll .navbar-toggler-icon,
+#mainNavbar.scrolled .navbar-toggler-icon {
+    filter: invert(1) !important; /* Beyaz ikonu siyaha çevirir */
 }
 
 
@@ -391,10 +418,10 @@ header.bgImage .bgImage-heading {
         max-width: 98% !important; /* Kenarlara biraz daha yayılmasını sağlar */
     }
     #mainNavbar .navbar-nav .nav-item {
-        margin-right: 0.8rem;
+        margin-right: 0.7rem !important;
     }
     #mainNavbar .navbar-nav .nav-item .nav-link {
-        font-size: 0.9rem; /* Standart boyut */
+        font-size: 0.7rem !important; /* Standart boyut */
         white-space: nowrap; /* Yazıların alt satıra düşmesini engeller */
     }
 
@@ -578,7 +605,7 @@ header.bgImage .bgImage-heading {
 }
 /* --- MOBİL MENÜ DÜZENLEMESİ (Offcanvas) --- */
 .offcanvas {
-    background-color: #1a1b26 !important; /* Header ile uyumlu koyu renk */
+    background-color: transparent !important; /* Header ile uyumlu koyu renk */
     border-left: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -603,4 +630,49 @@ header.bgImage .bgImage-heading {
         padding-left: 10px; /* Hoverda hafif sağa kayma efekti */
         transition: all 0.3s ease;
     }
+}
+/* --- MOBİL MENÜ İKONUNU SİYAH YAPMA (Scroll Durumunda) --- */
+
+/* 1. İkonun Rengi (White -> Black çevrimi) */
+#mainNavbar.navbar-scroll .navbar-toggler-icon,
+#mainNavbar.scrolled .navbar-toggler-icon {
+    /* filter komutu beyaz ikonu ters çevirip siyah yapar */
+    filter: invert(1) grayscale(100%) brightness(0) !important;
+}
+
+/* 2. İkonun Dış Çerçevesinin Rengi */
+#mainNavbar.navbar-scroll .navbar-toggler,
+#mainNavbar.scrolled .navbar-toggler {
+    border-color: rgba(195, 11, 11, 0.5) !important; /* Yarı saydam siyah çerçeve */
+}
+
+/* 3. Menü Açıldığında İkon Eski Haline (Beyaz) Dönsün İstersen */
+/* (Çünkü açılan menünün arka planı koyuysa ikon tekrar beyaz olmalı) */
+#mainNavbar .navbar-toggler:focus .navbar-toggler-icon {
+    /* Burayı ihtiyacına göre ayarlayabiliriz, şimdilik siyah kalsın diyorsan elleme */
+}
+/* --- DİL BUTONLARI (TR/EN) SCROLL AYARI --- */
+
+/* 1. Pasif Olan Buton (Çerçeveli Olan - btn-outline-light) */
+/* Scroll inince yazı ve çerçeve lacivert olsun */
+#mainNavbar.navbar-scroll .btn-outline-light,
+#mainNavbar.scrolled .btn-outline-light {
+    color: #015e91 !important;       /* Yazı rengi */
+    border-color: #015e91 !important; /* Çerçeve rengi */
+}
+
+/* Pasif butona mouse ile gelince (Hover) */
+#mainNavbar.navbar-scroll .btn-outline-light:hover,
+#mainNavbar.scrolled .btn-outline-light:hover {
+    background-color: #015e91 !important; /* Arka plan lacivert */
+    color: #fff !important;               /* Yazı beyaz */
+}
+
+/* 2. Aktif Olan Buton (Dolu Olan - btn-light) */
+/* Scroll inince bu butonun kendisi lacivert olsun ki belli olsun */
+#mainNavbar.navbar-scroll .btn-light,
+#mainNavbar.scrolled .btn-light {
+    background-color: #015e91 !important; /* Arka planı lacivert yap */
+    color: #fff !important;               /* Yazısını beyaz yap */
+    border-color: #015e91 !important;     /* Kenarlığı lacivert yap */
 }

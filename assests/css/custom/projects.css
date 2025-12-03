@@ -46,16 +46,15 @@
     height: 10px;
     border-radius: 50%;
     background: #ff5f56; /* Kırmızı Nokta */
-    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f; /* Sarı ve Yeşil Noktalar */
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f; 
 }
 
 /* İkon Ayarı */
 .project-icon-div i {
     font-size: 2.5rem;
-    background: -webkit-linear-gradient(#333, #555); /* İkon rengi koyu gri geçişli */
+    background: -webkit-linear-gradient(#333, #555); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* İstersen ikonları mavi yapmak için üstteki 3 satırı silip: color: #015e91; yazabilirsin */
 }
 
 /* KART GÖVDESİ */
@@ -64,7 +63,7 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    background-color: #f9f9f9; /* Hafif kırık beyaz iç zemin */
+    background-color: #f9f9f9; 
 }
 
 /* Proje Başlığı */
@@ -101,7 +100,7 @@
     margin: 3px 3px 3px 0;
     font-size: 0.75rem;
     font-weight: 600;
-    border-radius: 6px; /* Daha köşeli modern yapı */
+    border-radius: 6px;
     background-color: #e2e2e2;
     color: #444;
     transition: all 0.2s;

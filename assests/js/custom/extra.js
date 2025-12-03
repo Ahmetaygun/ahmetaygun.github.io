@@ -4,7 +4,6 @@ $(document).ready(function(){
         $(".pre-loader").addClass("loader-collapse");
     },3000);
     
-    // BURASI GÜNCELLENDİ: Python Developer eklendi
     var typed=new Typed('#typed',{
         strings:[
             "Software Engineer",
